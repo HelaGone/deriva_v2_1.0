@@ -1,4 +1,5 @@
 <?php require('functions.php'); ?>
+<?php require('connect_to_db.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
