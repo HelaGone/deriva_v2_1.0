@@ -48,12 +48,12 @@
 					
 					<td>
 						<label for="geoLat">Latitud</label><br>
-						<input type="number" name="geoLat" ><br>
+						<input type="number" step="0.000001" name="geoLat" ><br>
 					</td>
 
 					<td>
 						<label for="geoLon">Longitud</label><br>
-						<input type="number" name="geoLon" >
+						<input type="number" step="0.000001" name="geoLon" >
 					</td>
 					
 					<td>
