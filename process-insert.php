@@ -13,6 +13,7 @@
 			$geoLat = $_POST['geoLat'];
 			$geoLon = $_POST['geoLon'];
 			$state = $_POST['state'];
+			$state = str_replace('-', ' ', $state);
 			$city = $_POST['city'];
 			$place = $_POST['place'];
 			$serieName = $_POST['serieName'];
