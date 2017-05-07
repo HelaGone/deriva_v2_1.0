@@ -341,6 +341,7 @@
 					<td>
 						<label for="actions">Acciones</label><br>
 						<select form="main_input_form" name="actions" required>
+							<option value="">Selecciona una acción</option>
 							<option value="cavar">Cavar</option>
 							<option value="cocinar">Cocinar</option>
 							<option value="reciclar">Reciclar</option>

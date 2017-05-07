@@ -64,6 +64,18 @@
 		}
 	}
 
+	/*get all by_gender function*/
+	function de_get_by_gender($dbconn, $gender){
+		$query_by_gender = 'SELECT * FROM materiales WHERE género = "'.$gender.'" ';
+
+		if(!$result = mysqli_query($dbconn, $query_by_gender) ){
+			die(mysqli_error($dbconn));
+		}else{
+			$result = mysqli_fetch_all($result, MYSQLI_ASSOC);
+			return $result;
+		}
+	}
+
 	/*get all by_type function*/
 	function de_get_by_type($dbconn, $type){
 		$query_by_type = 'SELECT * FROM materiales WHERE tipo = "'.$type.'" ';
@@ -153,6 +165,18 @@
 		$query_by_sound = 'SELECT * FROM materiales WHERE sonido = "'.$sound.'" ';
 
 		if(!$result = mysqli_query($dbconn, $query_by_sound) ){
+			die(mysqli_error($dbconn));
+		}else{
+			$result = mysqli_fetch_all($result, MYSQLI_ASSOC);
+			return $result;
+		}
+	}
+
+	/*get all by_sound function*/
+	function de_get_by_subject($dbconn, $subject){
+		$query_by_subject = 'SELECT * FROM materiales WHERE sujeto = "'.$subject.'" ';
+
+		if(!$result = mysqli_query($dbconn, $query_by_subject) ){
 			die(mysqli_error($dbconn));
 		}else{
 			$result = mysqli_fetch_all($result, MYSQLI_ASSOC);
