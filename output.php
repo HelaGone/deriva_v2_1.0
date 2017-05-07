@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 <?php 
-	$all = de_get_by_ecosystem($dbconn, 'bosque');
+	$all = de_get_by_camera($dbconn, 'estatica');
 	?>
 			<div>
 				<table>
