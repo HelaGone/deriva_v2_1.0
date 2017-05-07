@@ -269,103 +269,125 @@
 
 <?php
 	$the_function = '';
+	$the_search = '';
 
 	if( (isset($_POST['get_all']) 	&& !empty($_POST['get_all'])) ){
 
 		$the_function = de_get_all($dbconn);
+		$the_search = $_POST['get_all'];
 
 	}else if( (isset($_POST['file_type']) && !empty($_POST['file_type'])) ){
 
 		$the_function = de_get_by_file_type($dbconn, $_POST['file_type']);
+		$the_search = $_POST['file_type'];
 
 	}else if( (isset($_POST['state']) && !empty($_POST['state'])) ){
 
 		$state = str_replace('-', ' ', $_POST['state']);
 		$the_function = de_get_by_state($dbconn, $state);
+		$the_search = $_POST['state'];
 
 	}else if( (isset($_POST['unity']) && !empty($_POST['unity'])) ){
 
 		$the_function = de_get_by_unity($dbconn, $_POST['unity']);
+		$the_search = $_POST['unity'];
 
 	}else if( (isset($_POST['gender']) && !empty($_POST['gender'])) ){
 
 		$the_function = de_get_by_gender($dbconn, $_POST['gender']);
+		$the_search = $_POST['gender'];
 
 	}else if( (isset($_POST['type']) && !empty($_POST['type'])) ){
 
 		$the_function = de_get_by_type($dbconn, $_POST['type']);
+		$the_search = $_POST['type'];
 
 	}else if( (isset($_POST['space']) && !empty($_POST['space'])) ){
 
 		$the_function = de_get_by_space($dbconn, $_POST['space']);
+		$the_search = $_POST['space'];
 
 	}else if( (isset($_POST['popupation']) && !empty($_POST['popupation'])) ){
 
 		$the_function = de_get_by_popupation($dbconn, $_POST['popupation']);
+		$the_search = $_POST['popupation'];
 
 	}else if( (isset($_POST['ecosystem']) && !empty($_POST['ecosystem'])) ){
 
 		$the_function = de_get_by_ecosystem($dbconn, $_POST['ecosystem']);
+		$the_search = $_POST['ecosystem'];
 
 	}else if( (isset($_POST['light']) && !empty($_POST['light'])) ){
 
 		$the_function = de_get_by_light($dbconn, $_POST['light']);
+		$the_search = $_POST['light'];
 
 	}else if( (isset($_POST['camera']) && !empty($_POST['camera'])) ){
 
 		$the_function = de_get_by_camera($dbconn, $_POST['camera']);
+		$the_search = $_POST['camera'];
 
 	}else if( (isset($_POST['movement']) && !empty($_POST['movement'])) ){
 
 		$the_function = de_get_by_movement($dbconn, $_POST['movement']);
+		$the_search = $_POST['movement'];
 
 	}else if( (isset($_POST['sound']) && !empty($_POST['sound'])) ){
 
 		$the_function = de_get_by_sound($dbconn, $_POST['sound']);
+		$the_search = $_POST['sound'];
 
 	}else if( (isset($_POST['subject']) && !empty($_POST['subject'])) ){
 
 		$the_function = de_get_by_subject($dbconn, $_POST['subject']);
+		$the_search = $_POST['subject'];
 
 	}else if( (isset($_POST['geometry']) && !empty($_POST['geometry'])) ){
 
 		$the_function = de_get_by_geometry($dbconn, $_POST['geometry']);
+		$the_search = $_POST['geometry'];
 
 	}else if( (isset($_POST['numericPresence']) && !empty($_POST['numericPresence'])) ){
 
 		$the_function = de_get_by_numericPresence($dbconn, $_POST['numericPresence']);
+		$the_search = $_POST['numericPresence'];
 
 	}else if( (isset($_POST['color']) && !empty($_POST['color'])) ){
 
 		$the_function = de_get_by_color($dbconn, $_POST['color']);
+		$the_search = $_POST['color'];
 
 	}else if( (isset($_POST['rythm']) && !empty($_POST['rythm'])) ){
 
 		$the_function = de_get_by_rythm($dbconn, $_POST['rythm']);
+		$the_search = $_POST['rythm'];
 
 	}else if( (isset($_POST['intensity']) && !empty($_POST['intensity'])) ){
 
 		$the_function = de_get_by_intensity($dbconn, $_POST['intensity']);
+		$the_search = $_POST['intensity'];
 
 	}else if( (isset($_POST['impact']) && !empty($_POST['impact'])) ){
 
 		$the_function = de_get_by_impact($dbconn, $_POST['impact']);
+		$the_search = $_POST['impact'];
 
 	}else if( (isset($_POST['actions']) && !empty($_POST['actions'])) ){
 
 		$the_function = de_get_by_actions($dbconn, $_POST['actions']);
+		$the_search = $_POST['actions'];
 
 	}
 
 
 
 		if(is_array($the_function) && !empty($the_function) ){
-			echo "Hay <strong>".count($the_function)."</strong> resultados para la búsqueda";
+			echo "Hay <strong>".count($the_function)."</strong> resultados para la búsqueda: ".$the_search;
 		?>
 			<div>
-			<?php	
+			<?php
 				foreach ($the_function as $key => $value):
-					echo "<table>";
+					echo "<table id='".$value['id']."'>";
 					foreach ($value as $k => $v):
 					?>
 						<tr>
