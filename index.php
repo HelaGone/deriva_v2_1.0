@@ -1,64 +1,35 @@
 <?php 
-	session_start();
 	ini_set('display_errors', 'On');
 	error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO TERMINE DE HACE DEBUG
 	require('connect_to_db.php');
+	session_start();
 
-	$_SESSION['id'] = '';
-
-	if( $_SESSION['id']  != 'deriva'):
-		echo "not logged<br>";
-	?>
-	<form method="post" action="" id="login_form" >
-		<label for="usr">Usuario</label><br>
-		<input type="text" name="usr" value="" placeholder="Usuario"><br>
-
-		<label for="pass">Password</label><br>
-		<input type="text" name="pass" value="" placeholder="Password"><br>
-
-		<input type="submit" value="Login" >
-	</form>
-<?php
-
-	if( isset($_POST['usr']) && !empty($_POST['usr']) && isset($_POST['pass']) && !empty($_POST['pass']) ){
-		$db_usr = '';
-		$db_pass = '';
+	if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$usuario = $_POST['usr'];
 		$password = $_POST['pass'];
-		$query = "SELECT * FROM usr_login WHERE id = 1";
+		$query = "SELECT * FROM usr_login WHERE usr = '$usuario' and pass = '$password'";
 
-		if( !($result = mysqli_query($dbconn, $query)) ){
+		if( !($result = mysqli_query($dbconn, $query) ) ){
 			die('Error!');
-		}else{	
-			
-			echo 'Success!<br>';
-
-			if( mysqli_num_rows( $result )==0 ){
-				echo 'No Rows Returned';
+		}else{
+			$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+			$count = mysqli_num_rows($result);
+			if($count == 1){
+				$_SESSION['login_user'] = $usuario;
+				header("location: input.php");
 			}else{
-				$result = mysqli_fetch_all($result, MYSQLI_ASSOC);
-				// print_r($result);
-
-				foreach ($result as $key => $value) {
-					$db_usr = $value['usr'];
-					$db_pass = $value['pass'];
-				}
-			}
-			if($db_usr === $usuario && $db_pass === $password ){
-				echo "login!!";
-				$_SESSION['id'] = 'deriva';
-			}else{
-				echo "error Login";
+				$err = "Credenciales inválidas";
 			}
 		}
-	}else{
-		echo "not set";
 	}
-	else:
-		echo "logged";
-	endif;
-
-
-
-	
 ?>
+<form method="post" action="" id="login_form" >
+	<label for="usr">Usuario</label><br>
+	<input type="text" name="usr" value="" placeholder="Usuario"><br>
+
+	<label for="pass">Password</label><br>
+	<input type="text" name="pass" value="" placeholder="Password"><br>
+
+	<input type="submit" value="Login" >
+</form>
+<div><?php echo $err; ?></div>
