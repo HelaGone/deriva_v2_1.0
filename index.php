@@ -16,20 +16,30 @@
 			$count = mysqli_num_rows($result);
 			if($count == 1){
 				$_SESSION['login_user'] = $usuario;
-				header("location: input.php");
+				header("location: admin-area.php");
 			}else{
 				$err = "Credenciales inválidas";
 			}
 		}
 	}
 ?>
-<form method="post" action="" id="login_form" >
-	<label for="usr">Usuario</label><br>
-	<input type="text" name="usr" value="" placeholder="Usuario"><br>
+<style type="text/css">
+	body{font-family: helvetica;}
+	.main_section{width:50%;margin:0 auto;text-align:center;padding:15% 0%;}
+	#login_form input{margin:20px 0px;border:1px solid rgba(0,0,0,0.05);background: none;box-shadow: 1px 1px 5px rgba(0,0,0,0.2);outline:none;width:150px;}
+	#login_form input[type=submit]{background: rgba(0,255,0,0.3);}
+	::-webkit-input-placeholder {text-align: center;}
+	.error{color:red;font-weight: 700; font-size: 2em;}
+</style>
 
-	<label for="pass">Password</label><br>
-	<input type="text" name="pass" value="" placeholder="Password"><br>
 
-	<input type="submit" value="Login" >
-</form>
-<div><?php echo $err; ?></div>
+<section id="form_page" class="main_section">
+	<form method="post" action="" id="login_form" >
+		<input type="text" name="usr" value="" placeholder="Usuario"><br>
+		<input type="text" name="pass" value="" placeholder="Password"><br>
+		<input type="submit" value="Entrar" >
+	</form>
+	<div>
+		<?php echo "<div class='error'>".$err."</div>";?>
+	</div>
+</section>

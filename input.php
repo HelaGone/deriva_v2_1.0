@@ -1,5 +1,5 @@
 <?php include('header.php'); ?>
-	<section id="input_form">
+	<section id="input_form" class="main_section">
 		<form id="main_input_form" method="post" action="process-insert.php">
 			<table>
 				<tr>
@@ -34,12 +34,8 @@
 						<label for="subtitles">Subtítulos</label><br>
 						<input type="text" name="subtitles" >
 					</td>
-
-					<td>
-						<label for="credits">Créditos</label><br>
-						<input type="text" name="credits" >
-					</td>
 				</tr>
+
 				<tr>
 					<td>
 						<label for="date">Fecha</label><br>
@@ -100,10 +96,8 @@
 					</td>
 					
 					<td>
-						<label for="place">Lugar</label><br>
-						<input type="text" name="place" ><br>
-					</td>
 				</tr>
+
 				<tr>
 					<td>
 						<label for="serieName">Nombre de la serie</label><br>
@@ -134,16 +128,7 @@
 							<option value="base">Base</option>
 							<option value="nexo">Nexo</option>
 						</select>	
-					</td>
-					
-					<td>
-						<label for="gender">Género</label><br>
-						<select form="main_input_form" name="gender" required>
-							<option value="">Selecciona un género</option>
-							<option value="documental">Documental</option>
-							<option value="ficcion">Ficción</option>
-						</select>
-					</td>
+					</td>	
 				</tr>
 
 				<tr>
@@ -208,17 +193,8 @@
 							<option value="artificial">Artificial</option>
 						</select>
 					</td>
-					
-					<td>
-						<label for="camera">Cámara</label><br>
-						<select form="main_input_form" name="camera" required>
-							<option value="">Selecciona una cámara</option>
-							<option value="dinamica">Dinámica</option>
-							<option value="estatica">Estática</option>
-						</select>
-					</td>
-
 				</tr>
+
 				<tr>
 					<td>
 						<label for="movement">Movimiento</label><br>
@@ -285,23 +261,6 @@
 							<option value="siete">Siete</option>
 							<option value="ocho">Ocho</option>
 							<option value="nueve">Nueve</option>
-						</select>
-					</td>
-					
-					<td>
-						<label for="color">Color</label><br>
-						<select form="main_input_form" name="color" required>
-							<option value="">Selecciona un color</option>
-							<option value="verde">Vede</option>
-							<option value="rojo">Rojo</option>
-							<option value="negro">Negro</option>
-							<option value="azul">Azúl</option>
-							<option value="blanco">Blacno</option>
-							<option value="amarillo">Amarillo</option>
-							<option value="rosa">Rosa</option>
-							<option value="morado">Morado</option>
-							<option value="gris">Gris</option>
-							<option value="cafe">Café</option>
 						</select>
 					</td>
 				</tr>
@@ -371,12 +330,63 @@
 							<option value="degollar">Degollar</option>
 						</select>
 					</td>
+				</tr>
 
+				<tr>
+					<td>
+						<label for="credits">Créditos</label><br>
+						<input type="text" name="credits" >
+					</td>
+
+					<td>
+						<label for="place">Lugar</label><br>
+						<input type="text" name="place" ><br>
+					</td>
+
+					<td>
+						<label for="gender">Género</label><br>
+						<select form="main_input_form" name="gender" required>
+							<option value="">Selecciona un género</option>
+							<option value="documental">Documental</option>
+							<option value="ficcion">Ficción</option>
+						</select>
+					</td>
+
+					<td>
+						<label for="camera">Cámara</label><br>
+						<select form="main_input_form" name="camera" required>
+							<option value="">Selecciona una cámara</option>
+							<option value="dinamica">Dinámica</option>
+							<option value="estatica">Estática</option>
+						</select>
+					</td>
+
+					<td>
+						<label for="color">Color</label><br>
+						<select form="main_input_form" name="color" required>
+							<option value="">Selecciona un color</option>
+							<option value="verde">Vede</option>
+							<option value="rojo">Rojo</option>
+							<option value="negro">Negro</option>
+							<option value="azul">Azúl</option>
+							<option value="blanco">Blacno</option>
+							<option value="amarillo">Amarillo</option>
+							<option value="rosa">Rosa</option>
+							<option value="morado">Morado</option>
+							<option value="gris">Gris</option>
+							<option value="cafe">Café</option>
+						</select>
+					</td>
+
+				</tr>
+
+				<tr>
 					<td>
 						<input type="submit" name="" value="Guardar">
 						<input type="reset" name="" value="Reset">
 					</td>
 				</tr>
+
 			</table>
 
 			
