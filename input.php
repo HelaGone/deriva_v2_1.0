@@ -2,7 +2,7 @@
 	<section id="input_form" class="main_section">
 		<form id="main_input_form" method="post" action="process-insert.php">
 			<table>
-				<tr>
+				<tr class="table_row">
 					<td>
 						<label for="filename">Nombre del archivo</label><br>
 						<input type="text" name="filename" >
@@ -36,7 +36,7 @@
 					</td>
 				</tr>
 
-				<tr>
+				<tr class="table_row">
 					<td>
 						<label for="date">Fecha</label><br>
 						<input type="date" name="date" >
@@ -98,7 +98,7 @@
 					<td>
 				</tr>
 
-				<tr>
+				<tr class="table_row">
 					<td>
 						<label for="serieName">Nombre de la serie</label><br>
 						<input type="text" name="serieName" >
@@ -131,7 +131,7 @@
 					</td>	
 				</tr>
 
-				<tr>
+				<tr class="table_row">
 					<td>
 						<label for="type">Tipo</label><br>
 						<select form="main_input_form" name="type" required>
@@ -195,7 +195,7 @@
 					</td>
 				</tr>
 
-				<tr>
+				<tr class="table_row">
 					<td>
 						<label for="movement">Movimiento</label><br>
 						<select form="main_input_form" name="movement" required>
@@ -265,7 +265,7 @@
 					</td>
 				</tr>
 
-				<tr>
+				<tr class="table_row">
 					<td>
 						<label for="rythm">Ritmo</label><br>
 						<select form="main_input_form" name="rythm" required>
@@ -332,7 +332,7 @@
 					</td>
 				</tr>
 
-				<tr>
+				<tr class="table_row">
 					<td>
 						<label for="credits">Créditos</label><br>
 						<input type="text" name="credits" >
@@ -380,24 +380,24 @@
 
 				</tr>
 
-				<tr>
+				<tr class="table_row controls">
+					<td></td>
+					<td></td>
+					<td>
+						<button class="to_main">
+							Regrasar al panel principal
+						</button>
+					</td>
+					<td>
+						<input type="reset" name="" value="Reset">
+					</td>
 					<td>
 						<input type="submit" name="" value="Guardar">
-						<input type="reset" name="" value="Reset">
 					</td>
 				</tr>
 
-			</table>
 
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			</table>
 		</form>
 	</section>
 <?php include('footer.php'); ?>

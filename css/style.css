@@ -6,7 +6,7 @@
 
 
 /*GENERAL*/
-body{font-family: helvetica; color:#ddd; }
+body{font-family: helvetica; color:#666; }
 a{color:#666;text-decoration: none;}
 
 .main_section{width:70%; margin:0 auto;}
@@ -14,3 +14,14 @@ a{color:#666;text-decoration: none;}
 .navigation ul li{margin:40px 0px;text-align: center;width:100%;height:120px;border:1px solid rgba(0,0,0,0.05);box-shadow: 1px 1px 5px rgba(0,0,0,0.2);border-radius: 5px;}
 .navigation ul li:hover{box-shadow: 1px 1px 7px rgba(0,0,0,0.3);}
 .navigation ul li a{position: relative;top: 50%;transform: translateY(-50%); }
+
+#input_form{padding-top:90px;}
+#main_input_form table{width:100%;}
+#main_input_form table tr{height:70px;text-align: center;}
+#main_input_form table tr td input, #main_input_form table tr td select{margin-top:15px;width:80%;}
+
+#inner_output_section{padding-top:90px;}
+#filter_form{padding:20px;margin-bottom:60px;}
+#filter_form select, #filter_form input{width:200px;}
+
+

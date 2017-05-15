@@ -1,22 +1,23 @@
 <?php include('header.php'); ?>
+<?php include('connect_to_db.php'); ?>
 	
-	<section id="main_output_section">
+	<section id="main_output_section" class="main_section">
 		<section id="inner_output_section">
 			<form id="filter_form" action="" method="post">
 
-				<label for="file_type">Enlistar por tipo de Archivo</label>
+				<!-- <label for="file_type">Enlistar por tipo de Archivo</label> -->
 				<select form="filter_form" name="file_type" >
-					<option value="">Filtrar por:</option>
+					<option value="">Tipo de archivo</option>
 					<option value="objeto" >Objeto</option>
 					<option value="video" >Video</option>
 					<option value="imagen" >Imagen</option>
 					<option value="sonido" >Sonido</option>
 					<option value="texto" >Texto</option>
-				</select><br>
+				</select>
 
-				<label for="state">Enlistar por estado</label>
+				<!-- <label for="state">Enlistar por estado</label> -->
 				<select form="filter_form" name="state" >
-					<option value="">Selecciona un estado</option>
+					<option value="">Estado</option>
 					<option value="baja-california">Baja California</option>
 					<option value="baja-california-sur">Baja California Sur</option>
 					<option value="sonora">Sonora</option>
@@ -48,27 +49,27 @@
 					<option value="morelos">Morelos</option>
 					<option value="estado-de-mexico">Estado de México</option>
 					<option value="distrito-federal">Distrito Federal</option>
-				</select><br>
+				</select>
 
-				<label for="unity">Enlistar por unidad</label>
+				<!-- <label for="unity">Enlistar por unidad</label> -->
 				<select form="filter_form" name="unity">
-					<option value="">Selecciona una unidad</option>
+					<option value="">Unidad</option>
 					<option value="satelite">Satélite</option>
 					<option value="capsula">Cápsula</option>
 					<option value="base">Base</option>
 					<option value="nexo">Nexo</option>
-				</select><br>
+				</select>
 
-				<label for="gender">Género</label>
+				<!-- <label for="gender">Género</label> -->
 				<select form="filter_form" name="gender" >
-					<option value="">Selecciona un género</option>
+					<option value="">Género</option>
 					<option value="documental">Documental</option>
 					<option value="ficcion">Ficción</option>
-				</select><br>
+				</select>
 
-				<label for="type">Tipo</label>
+				<!-- <label for="type">Tipo</label> -->
 				<select form="filter_form" name="type" >
-					<option value="">Selecciona un tipo</option>
+					<option value="">Tipo</option>
 					<option value="pregunta">Pregunta</option>
 					<option value="testimonio">Testimonio</option>
 					<option value="documental">Documental</option>
@@ -79,25 +80,25 @@
 					<option value="textura">Textura</option>
 					<option value="cancion">Canción</option>
 					<option value="detalle">Detalle</option>
-				</select><br>
+				</select>
 
-				<label for="space">Espacio</label>
+				<!-- <label for="space">Espacio</label> -->
 				<select form="filter_form" name="space" >
-					<option value="">Selecciona un espacio</option>
+					<option value="">Espacio</option>
 					<option value="interior">Interior</option>
 					<option value="exterior">Exterior</option>
-				</select><br>
+				</select>
 
-				<label for="population">Población</label>
+				<!-- <label for="population">Población</label> -->
 				<select form="filter_form" name="population" >
-					<option value="">Selecciona una población</option>
+					<option value="">Población</option>
 					<option value="rural">Rural</option>
-					<option value="urbana">Urbana</option>
-				</select><br>
+					<option value="urbano">Urbana</option>
+				</select>
 
-				<label for="ecosystem">Ecosistema</label>
+				<!-- <label for="ecosystem">Ecosistema</label> -->
 				<select form="filter_form" name="ecosystem" >
-					<option value="">Selecciona un ecosistema</option>
+					<option value="">Ecosistema</option>
 					<option value="bosque">Bosque</option>
 					<option value="selva">Selva</option>
 					<option value="desierto">Desierto</option>
@@ -107,59 +108,59 @@
 					<option value="montana">Montaña</option>
 					<option value="malpais">Malpais</option>
 					<option value="sierra">Sierra</option>
-				</select><br>
+				</select>
 
-				<label for="light">Luz</label>
+				<!-- <label for="light">Luz</label> -->
 				<select form="filter_form" name="light" >
-					<option value="">Selecciona una luz</option>
+					<option value="">Luz</option>
 					<option value="dia">Día</option>
 					<option value="tarde">Tarde</option>
 					<option value="noche">Noche</option>
 					<option value="artificial">Artificial</option>
-				</select><br>
+				</select>
 
-				<label for="camera">Cámara</label>
+				<!-- <label for="camera">Cámara</label> -->
 				<select form="filter_form" name="camera" >
-					<option value="">Selecciona una cámara</option>
+					<option value="">Cámara</option>
 					<option value="dinamica">Dinámica</option>
 					<option value="estatica">Estática</option>
-				</select><br>
+				</select>
 
-				<label for="movement">Movimiento</label>
+				<!-- <label for="movement">Movimiento</label> -->
 				<select form="filter_form" name="movement" >
-					<option value="">Selecciona un movimiento</option>
+					<option value="">Movimiento</option>
 					<option value="arriba">Arriba</option>
 					<option value="abajo">Abajo</option>
 					<option value="izquierda">Izquierda</option>
 					<option value="derecha">Derecha</option>
 					<option value="adelante">Adelante</option>
 					<option value="atras">Atras</option>
-				</select><br>
+				</select>
 
-				<label for="sound">Sonido</label>
+				<!-- <label for="sound">Sonido</label> -->
 				<select form="filter_form" name="sound" >
-					<option value="">Selecciona un sonido</option>
+					<option value="">Sonido</option>
 					<option value="ambiente">Ambiente</option>
 					<option value="dialogo">Diálogo</option>
 					<option value="accion">Acción</option>
 					<option value="musica">Música</option>
 					<option value="letra">Letra</option>
-				</select><br>
+				</select>
 
-				<label for="subject">Sujeto</label>
+				<!-- <label for="subject">Sujeto</label> -->
 				<select form="filter_form" name="subject" >
-					<option value="">Selecciona un sujeto</option>
+					<option value="">Sujeto</option>
 					<option value="animal">Animal</option>
 					<option value="humano">Humano</option>
 					<option value="objeto">Objeto</option>
 					<option value="espacio">Espacio</option>
 					<option value="hombre">Hombre</option>
 					<option value="mujer">Mujer</option>
-				</select><br>
+				</select>
 
-				<label for="geometry">Geometría dominante</label>
+				<!-- <label for="geometry">Geometría dominante</label> -->
 				<select form="filter_form" name="geometry" >
-					<option value="">Selecciona una geometría</option>
+					<option value="">Geometría</option>
 					<option value="rectangulo">Rectángulo</option>
 					<option value="triangulo">Triángulo</option>
 					<option value="circulo">Círculo</option>
@@ -167,11 +168,11 @@
 					<option value="vertical">Vertical</option>
 					<option value="fuga">Fuga</option>
 					<option value="simetria">Simetría</option>
-				</select><br>
+				</select>
 
-				<label for="numericPresence">Presencia numérica</label>
+				<!-- <label for="numericPresence">Presencia numérica</label> -->
 				<select form="filter_form" name="numericPresence" >
-					<option value="">Selecciona un número</option>
+					<option value="">Número</option>
 					<option value="uno">Uno</option>
 					<option value="dos">Dos</option>
 					<option value="tres">Tres</option>
@@ -181,11 +182,11 @@
 					<option value="siete">Siete</option>
 					<option value="ocho">Ocho</option>
 					<option value="nueve">Nueve</option>
-				</select><br>
+				</select>
 
-				<label for="color">Color</label>
+				<!-- <label for="color">Color</label> -->
 				<select form="filter_form" name="color" >
-					<option value="">Selecciona un color</option>
+					<option value="">Color</option>
 					<option value="verde">Vede</option>
 					<option value="rojo">Rojo</option>
 					<option value="negro">Negro</option>
@@ -196,31 +197,31 @@
 					<option value="morado">Morado</option>
 					<option value="gris">Gris</option>
 					<option value="cafe">Café</option>
-				</select><br>
+				</select>
 
-				<label for="rythm">Ritmo</label>
+				<!-- <label for="rythm">Ritmo</label> -->
 				<select form="filter_form" name="rythm" >
-					<option value="">Selecciona un ritmo</option>
+					<option value="">Rítmo</option>
 					<option value="rapido">Rápido</option>
 					<option value="medio">Medio</option>
 					<option value="lento">Lento</option>
 					<option value="estatico">Estático</option>
-				</select><br>
+				</select>
 
-				<label for="intensity">Intensidad</label>
-				<input type="number" name="intensity"><br>
+				<!-- <label for="intensity">Intensidad</label> -->
+				<input type="number" name="intensity" placeholder="Intensidad">
 
-				<label for="impact">Impacto</label>
+				<!-- <label for="impact">Impacto</label> -->
 				<select form="filter_form" name="impact" >
-					<option value="">Selecciona un impacto</option>
+					<option value="">Impacto</option>
 					<option value="personal">Personal</option>
 					<option value="comunidad">Comunidad</option>
 					<option value="general">General</option>
-				</select><br>
+				</select>
 
-				<label for="actions">Acciones</label>
+				<!-- <label for="actions">Acciones</label> -->
 				<select form="filter_form" name="actions" >
-					<option value="">Selecciona una acción</option>
+					<option value="">Acción</option>
 					<option value="cavar">Cavar</option>
 					<option value="cocinar">Cocinar</option>
 					<option value="reciclar">Reciclar</option>
@@ -253,19 +254,15 @@
 				<input type="submit" value="Filtrar">
 				<input type="reset" value="Reset">
 			</form>
+
+				<button class="to_main">
+					Regrasar al panel principal
+				</button>
+				
 				<!-- <label for="get_all">Enlistar todas las entradas</label> -->
 			<!-- <button type="submit" value="get_all" name="get_all" id="get_all">Todos los resultados</button><br> -->
 		</section>
 	</section>
-
-
-
-
-
-
-
-
-
 
 <?php
 	$the_function = '';
@@ -307,10 +304,10 @@
 		$the_function = de_get_by_space($dbconn, $_POST['space']);
 		$the_search = $_POST['space'];
 
-	}else if( (isset($_POST['popupation']) && !empty($_POST['popupation'])) ){
+	}else if( (isset($_POST['population']) && !empty($_POST['population'])) ){
 
-		$the_function = de_get_by_popupation($dbconn, $_POST['popupation']);
-		$the_search = $_POST['popupation'];
+		$the_function = de_get_by_population($dbconn, $_POST['population']);
+		$the_search = $_POST['population'];
 
 	}else if( (isset($_POST['ecosystem']) && !empty($_POST['ecosystem'])) ){
 
@@ -382,7 +379,7 @@
 
 
 		if(is_array($the_function) && !empty($the_function) ){
-			echo "Hay <strong>".count($the_function)."</strong> resultados para la búsqueda: ".$the_search;
+			echo "<p>Hay <strong>".count($the_function)."</strong> resultados para la búsqueda: ".strtoupper($the_search)."</p>";
 		?>
 			<div>
 			<?php

@@ -1,5 +1,6 @@
 
-	</div><!--end main container-->
-</body>
-<footer></footer>
+		</div><!--end main container-->
+	</body>
+
+	<footer></footer>
 </html>
