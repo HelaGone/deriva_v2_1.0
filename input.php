@@ -381,7 +381,9 @@
 				</tr>
 
 				<tr class="table_row controls">
-					<td></td>
+					<td>
+						<input type="file" name="_img" enctype="multipart/form-data">
+					</td>
 					<td></td>
 					<td>
 						<button class="to_main">

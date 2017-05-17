@@ -1,4 +1,7 @@
 <?php 
+ini_set('display_errors', 'On');
+error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO TERMINE DE HACE DEBUG
+
 DEFINE('DB_USER', 'root');
 DEFINE('DB_PSWD', 'root');
 DEFINE('DB_HOST', 'localhost');
