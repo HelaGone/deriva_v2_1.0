@@ -4,10 +4,6 @@
 	if(session_destroy()){
 		header('Location: index.php');
 	}
-
-
-
 	include('header.php'); 
+	include('footer.php');
 ?>
-
-<?php include('footer.php'); ?>

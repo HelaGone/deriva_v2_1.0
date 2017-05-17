@@ -256,6 +256,18 @@
 		}
 	}
 
+	/*get all by_theme function*/
+	function de_get_by_theme($dbconn, $theme){
+		// $query_by_theme = 'SELECT * FROM materiales WHERE impacto LIKE "'.'%'.$theme.'%'.'" ';
+		$query_by_theme = 'SELECT * FROM materiales WHERE temas LIKE "%'.$theme.'%"';
+		if(!$result = mysqli_query($dbconn, $query_by_theme) ){
+			die(mysqli_error($dbconn));
+		}else{
+			$result = mysqli_fetch_all($result, MYSQLI_ASSOC);
+			return $result;
+		}
+	}
+
 	/*get all by_actions function*/
 	function de_get_by_actions($dbconn, $actions){
 		$query_by_actions = 'SELECT * FROM materiales WHERE acciones = "'.$actions.'" ';

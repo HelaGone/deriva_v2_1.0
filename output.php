@@ -219,6 +219,8 @@
 					<option value="general">General</option>
 				</select>
 
+				<input type="text" name="theme" placeholder="Tema">
+
 				<!-- <label for="actions">Acciones</label> -->
 				<select form="filter_form" name="actions" >
 					<option value="">Acción</option>
@@ -369,6 +371,11 @@
 		$the_function = de_get_by_impact($dbconn, $_POST['impact']);
 		$the_search = $_POST['impact'];
 
+	}else if( (isset($_POST['theme']) && !empty($_POST['theme'])) ){
+
+		$the_function = de_get_by_theme($dbconn, $_POST['theme']);
+		$the_search = $_POST['theme'];
+
 	}else if( (isset($_POST['actions']) && !empty($_POST['actions'])) ){
 
 		$the_function = de_get_by_actions($dbconn, $_POST['actions']);
@@ -384,6 +391,7 @@
 			<div>
 			<?php
 				foreach ($the_function as $key => $value):
+					echo "<div class='separdor'></div>";
 					echo "<table id='".$value['id']."'>";
 					foreach ($value as $k => $v):
 					?>

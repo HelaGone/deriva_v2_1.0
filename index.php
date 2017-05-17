@@ -1,6 +1,6 @@
 <?php 
-	ini_set('display_errors', 'On');
-	error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO TERMINE DE HACE DEBUG
+	//ini_set('display_errors', 'On');
+	//error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO TERMINE DE HACE DEBUG
 	require('connect_to_db.php');
 	session_start();
 
@@ -36,7 +36,7 @@
 <section id="form_page" class="main_section">
 	<form method="post" action="" id="login_form" >
 		<input type="text" name="usr" value="" placeholder="Usuario"><br>
-		<input type="text" name="pass" value="" placeholder="Password"><br>
+		<input type="password" name="pass" value="" placeholder="Password"><br>
 		<input type="submit" value="Entrar" >
 	</form>
 	<div>

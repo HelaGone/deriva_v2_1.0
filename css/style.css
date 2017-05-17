@@ -24,4 +24,6 @@ a{color:#666;text-decoration: none;}
 #filter_form{padding:20px;margin-bottom:60px;}
 #filter_form select, #filter_form input{width:200px;}
 
+.separdor{width:100%;height:2px;background: #000;margin:20px 0px;}
+
 
