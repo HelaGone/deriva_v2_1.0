@@ -269,143 +269,62 @@
 <?php
 	$the_function = '';
 	$the_search = '';
+	$file_type_query = '';
 
-	if( (isset($_POST['get_all']) 	&& !empty($_POST['get_all'])) ){
+	if( $_SERVER['REQUEST_METHOD'] == 'POST' ):
+		$file_type_query = ($_POST['file_type']) ? $_POST['file_type']: '';
+		$state_query = ($_POST['state']) ? $_POST['state']: '';
+		$unity_query = ($_POST['unity']) ? $_POST['unity']: '';
+		$gender_query = ($_POST['gender']) ? $_POST['gender']: '';
+		$type_query = ($_POST['type']) ? $_POST['type']: '';
+		$space_query = ($_POST['space']) ? $_POST['space']: '';
+		$population_query = ($_POST['population']) ? $_POST['population']: '';
+		$ecosystem_query = ($_POST['ecosystem']) ? $_POST['ecosystem']: '';
+		$light_query = ($_POST['light']) ? $_POST['light']: '';
+		$camera_query = ($_POST['camera']) ? $_POST['camera']: '';
+		$movement_query = ($_POST['movement']) ? $_POST['movement']: '';
+		$sound_query = ($_POST['sound']) ? $_POST['sound']: '';
+		$subject_query = ($_POST['subject']) ? $_POST['subject']: '';
+		$geometry_query = ($_POST['geometry']) ? $_POST['geometry']: '';
+		$numericPresence_query = ($_POST['numericPresence']) ? $_POST['numericPresence']: '';
+		$color_query = ($_POST['color']) ? $_POST['color']: '';
+		$rythm_query = ($_POST['rythm']) ? $_POST['rythm']: '';
+		$intensity_query = ($_POST['intensity']) ? $_POST['intensity']: '';
+		$impact_query = ($_POST['impact']) ? $_POST['impact']: '';
+		$theme_query = ($_POST['theme']) ? $_POST['theme']: '';
+		$actions_query = ($_POST['actions']) ? $_POST['actions']: '';
 
-		$the_function = de_get_all($dbconn);
-		$the_search = $_POST['get_all'];
+		//save values to a general array
+		$arr_queries = array($file_type_query,$state_query,$unity_query,$gender_query,$type_query,$space_query,$population_query,$ecosystem_query,$light_query,$camera_query,$movement_query,$sound_query,$subject_query,$geometry_query,$numericPresence_query,$color_query,$rythm_query,$intensity_query,$impact_query,$theme_query,$actions_query);
 
-	}else if( (isset($_POST['file_type']) && !empty($_POST['file_type'])) ){
+		// print_r($arr_queries);
+		// echo "<br>";
 
-		$the_function = de_get_by_file_type($dbconn, $_POST['file_type']);
-		$the_search = $_POST['file_type'];
+		$arr = array();
+		foreach ($arr_queries as $key => $value){
+			if($value == ''){
+				//do nothing
+			}else{
+				//save to array
+				array_push($arr, $value);
+			}
+		}
+				print_r($arr);
 
-	}else if( (isset($_POST['state']) && !empty($_POST['state'])) ){
+	else:
 
-		$state = str_replace('-', ' ', $_POST['state']);
-		$the_function = de_get_by_state($dbconn, $state);
-		$the_search = $_POST['state'];
+		echo "no se ha mandado la forma";
+	
+	endif;	
 
-	}else if( (isset($_POST['unity']) && !empty($_POST['unity'])) ){
+	// echo ($file_type_query."<br>".$state_query."<br>".$unity_query."<br>".$gender_query."<br>".$type_query."<br>".$space_query."<br>".$population_query."<br>".$ecosystem_query."<br>".$light_query."<br>".$camera_query."<br>".$movement_query."<br>".$sound_query."<br>".$subject_query."<br>".$geometry_query."<br>".$numericPresence_query."<br>".$color_query."<br>".$rythm_query."<br>".$intensity_query."<br>".$impact_query."<br>".$theme_query."<br>".$actions_query."<br>");
 
-		$the_function = de_get_by_unity($dbconn, $_POST['unity']);
-		$the_search = $_POST['unity'];
-
-	}else if( (isset($_POST['gender']) && !empty($_POST['gender'])) ){
-
-		$the_function = de_get_by_gender($dbconn, $_POST['gender']);
-		$the_search = $_POST['gender'];
-
-	}else if( (isset($_POST['type']) && !empty($_POST['type'])) ){
-
-		$the_function = de_get_by_type($dbconn, $_POST['type']);
-		$the_search = $_POST['type'];
-
-	}else if( (isset($_POST['space']) && !empty($_POST['space'])) ){
-
-		$the_function = de_get_by_space($dbconn, $_POST['space']);
-		$the_search = $_POST['space'];
-
-	}else if( (isset($_POST['population']) && !empty($_POST['population'])) ){
-
-		$the_function = de_get_by_population($dbconn, $_POST['population']);
-		$the_search = $_POST['population'];
-
-	}else if( (isset($_POST['ecosystem']) && !empty($_POST['ecosystem'])) ){
-
-		$the_function = de_get_by_ecosystem($dbconn, $_POST['ecosystem']);
-		$the_search = $_POST['ecosystem'];
-
-	}else if( (isset($_POST['light']) && !empty($_POST['light'])) ){
-
-		$the_function = de_get_by_light($dbconn, $_POST['light']);
-		$the_search = $_POST['light'];
-
-	}else if( (isset($_POST['camera']) && !empty($_POST['camera'])) ){
-
-		$the_function = de_get_by_camera($dbconn, $_POST['camera']);
-		$the_search = $_POST['camera'];
-
-	}else if( (isset($_POST['movement']) && !empty($_POST['movement'])) ){
-
-		$the_function = de_get_by_movement($dbconn, $_POST['movement']);
-		$the_search = $_POST['movement'];
-
-	}else if( (isset($_POST['sound']) && !empty($_POST['sound'])) ){
-
-		$the_function = de_get_by_sound($dbconn, $_POST['sound']);
-		$the_search = $_POST['sound'];
-
-	}else if( (isset($_POST['subject']) && !empty($_POST['subject'])) ){
-
-		$the_function = de_get_by_subject($dbconn, $_POST['subject']);
-		$the_search = $_POST['subject'];
-
-	}else if( (isset($_POST['geometry']) && !empty($_POST['geometry'])) ){
-
-		$the_function = de_get_by_geometry($dbconn, $_POST['geometry']);
-		$the_search = $_POST['geometry'];
-
-	}else if( (isset($_POST['numericPresence']) && !empty($_POST['numericPresence'])) ){
-
-		$the_function = de_get_by_numericPresence($dbconn, $_POST['numericPresence']);
-		$the_search = $_POST['numericPresence'];
-
-	}else if( (isset($_POST['color']) && !empty($_POST['color'])) ){
-
-		$the_function = de_get_by_color($dbconn, $_POST['color']);
-		$the_search = $_POST['color'];
-
-	}else if( (isset($_POST['rythm']) && !empty($_POST['rythm'])) ){
-
-		$the_function = de_get_by_rythm($dbconn, $_POST['rythm']);
-		$the_search = $_POST['rythm'];
-
-	}else if( (isset($_POST['intensity']) && !empty($_POST['intensity'])) ){
-
-		$the_function = de_get_by_intensity($dbconn, $_POST['intensity']);
-		$the_search = $_POST['intensity'];
-
-	}else if( (isset($_POST['impact']) && !empty($_POST['impact'])) ){
-
-		$the_function = de_get_by_impact($dbconn, $_POST['impact']);
-		$the_search = $_POST['impact'];
-
-	}else if( (isset($_POST['theme']) && !empty($_POST['theme'])) ){
-
-		$the_function = de_get_by_theme($dbconn, $_POST['theme']);
-		$the_search = $_POST['theme'];
-
-	}else if( (isset($_POST['actions']) && !empty($_POST['actions'])) ){
-
-		$the_function = de_get_by_actions($dbconn, $_POST['actions']);
-		$the_search = $_POST['actions'];
-
+	if($file_type_query != '' ){
+		$column = "tipoDeArchivo";
+		echo $column.": ".$file_type_query;
+	}else{
+		echo "<br>empty";
 	}
 
-
-
-		if(is_array($the_function) && !empty($the_function) ){
-			echo "<p>Hay <strong>".count($the_function)."</strong> resultados para la búsqueda: ".strtoupper($the_search)."</p>";
-		?>
-			<div>
-			<?php
-				foreach ($the_function as $key => $value):
-					echo "<div class='separdor'></div>";
-					echo "<table id='".$value['id']."'>";
-					foreach ($value as $k => $v):
-					?>
-						<tr>
-							<td><?php echo $k; ?></td>
-							<td><?php echo $v; ?></td>
-						</tr>
-				<?php
-					endforeach;
-					echo "</table>";
-				endforeach;
-				?>
-			</div>
-		<?php	
-		}
 	?>
 <?php include('footer.php'); ?>
