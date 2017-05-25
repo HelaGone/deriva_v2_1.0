@@ -309,7 +309,27 @@
 				array_push($arr, $value);
 			}
 		}
-				print_r($arr);
+
+		$q_val0 = '';
+		$q_val1 = '';
+		if(is_array($arr) && !empty($arr) ):
+			foreach ($arr as $key => $value) {
+				if( ($value == 'objeto') ||  ($value == 'video') || ($value == 'imagen') || ($value == 'sonido') || ($value == 'texto') ){
+					$q_val0 = $value;
+				}
+				if( ($value == 'baja-california') ||  ($value == 'baja-california-sur') || ($value == 'sonora') || ($value == 'sinaloa') || ($value == 'nayarit') ){
+					$q_val1 = $value;
+				}
+			}
+
+			$col_v0 = ($q_val0) ? 'objeto' : '';
+			$col_v1 = ($q_val1) ? 'estado' : '';
+
+			echo $col_v0."  ".$col_v1."<br>";
+
+			// echo $q_val1." ".$q_val0."<br>";
+			// print_r($arr);
+		endif;	
 
 	else:
 
