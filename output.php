@@ -37,7 +37,7 @@
 		$actions_query = ($_POST['actions']) ? $_POST['actions']: '';
 
 		//save values to a general array
-		$arr_queries = array('tipoDeArchivo'=>$file_type_query,'estado'=>$state_query,'unidad'=>$unity_query,'genero'=>$gender_query,'tipo'=>$type_query,'espacio'=>$space_query,'población'=>$population_query,'ecosistema'=>$ecosystem_query,'luz'=>$light_query,'cámara'=>$camera_query,'movimiento'=>$movement_query,'sonido'=>$sound_query,'sujeto'=>$subject_query,'geometríaDominante'=>$geometry_query,'presenciaNumérica'=>$numericPresence_query,'color'=>$color_query,'ritmo'=>$rythm_query,'nuevaIntensidad'=>$intensity_query,'impacto'=>$impact_query,'temas'=>$theme_query,'acciones'=>$actions_query);
+		$arr_queries = array('tipoDeArchivo'=>$file_type_query,'estado'=>$state_query,'unidad'=>$unity_query,'género'=>$gender_query,'tipo'=>$type_query,'espacio'=>$space_query,'población'=>$population_query,'ecosistema'=>$ecosystem_query,'luz'=>$light_query,'cámara'=>$camera_query,'movimiento'=>$movement_query,'sonido'=>$sound_query,'sujeto'=>$subject_query,'geometríaDominante'=>$geometry_query,'presenciaNumérica'=>$numericPresence_query,'color'=>$color_query,'ritmo'=>$rythm_query,'nuevaIntensidad'=>$intensity_query,'impacto'=>$impact_query,'temas'=>$theme_query,'acciones'=>$actions_query);
 
 		$arr_keys = array();
 		$arr_values = array();
@@ -54,10 +54,6 @@
 
 		//save key-val pairs array
 		$arr = array_combine($arr_keys, $arr_values);
-
-		// echo "<pre>";
-		// 	print_r($arr);
-		// echo "</pre>";
 		$counting_index = 0;
 		$el_query_part = '';
 		foreach ($arr as $k => $v) {
@@ -66,26 +62,86 @@
 		}
 		$elquery = "SELECT * FROM materiales WHERE ".$el_query_part;
 		$elquery = substr($elquery, 0, -4);
-		// echo $elquery.";<br>";
 		if( !($result = mysqli_query($dbconn, $elquery)) ){
 			die('Error!');
 		}else{	
-			if( mysqli_num_rows( $result ) == 0 ){
+			if( mysqli_num_rows( $result ) == 0 ):
 				echo 'No hay resultados para esta consulta';
-			}else{
+			else:
 				$result = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-				echo '<h3 class="">Resultados para esta consulta: </h3><h2>'.count($result).'</h2><br>';
-
-				foreach ($result as $key => $searched):
-					echo $searched['nombreArchivo']."<br>";
-				endforeach;
-
-
-				// echo "<pre>";
-				// 	print_r($result);
-				// echo "</pre>";
-			}
+				?>
+				<section class="nme_resultados main_section">
+					<span class="txt lbl_res">Resultados para esta consulta: </span><span class="lbl_num_res"><?php echo count($result); ?></span><br>
+					<section class="file_names_pool">
+						<div>
+							<div class="nmes">
+							<?php
+							$s_arr = array();
+								foreach ($result as $key => $searched):
+									array_push($s_arr, $searched);
+									echo "<p>";
+									echo $searched['nombreArchivo'];
+									echo "</p>";
+								endforeach;
+								?>
+							</div>
+						</div>
+					</section>
+				</section>			
+				<table class="result_table">
+					<tbody>
+						<tr>
+							<th>ID</th>
+							<th>Nombre</th>
+							<th>Tipo</th>
+							<th>nNombre</th>
+							<th>Autor</th>
+							<th>Subs</th>
+							<th>Créditos</th>
+							<th>Fecha</th>
+							<th>Lat</th>
+							<th>Lon</th>
+							<th>Estado</th>
+							<th>Mun/Ciu</th>
+							<th>Lugar</th>
+							<th>Serie Nombre</th>
+							<th>Serie Parte</th>
+							<th>Preg</th>
+							<th>nPreg</th>
+							<th>Unidad</th>
+							<th>Género</th>
+							<th>Tipo</th>
+							<th>Espacio</th>
+							<th>Población</th>
+							<th>Ecosistema</th>
+							<th>Luz</th>
+							<th>Cámara</th>
+							<th>Movimiento</th>
+							<th>Sonido</th>
+							<th>Sujeto</th>
+							<th>Geometría</th>
+							<th>nPresencia</th>
+							<th>Color</th>
+							<th>Ritmo</th>
+							<th>nIntensidad</th>
+							<th>Impacto</th>
+							<th>Temas</th>
+							<th>Acciones</th>
+						</tr>
+						<?php 
+							foreach ($s_arr as $key => $value) {
+								echo "<tr>";
+									foreach ($value as $k => $v) {
+										echo "<td>".$v."</td>";
+									}
+								echo "</tr>";
+								// echo "<tr><td>".$mks[0]."</td><td>".$mks[1]."</td></tr>";
+							}
+						?>
+					</tbody>
+				</table>
+			<?php	
+			endif;
 		}
 
 	else:
