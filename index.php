@@ -18,7 +18,7 @@
 				$_SESSION['login_user'] = $usuario;
 				header("location: admin-area.php");
 			}else{
-				$err = "Credenciales inválidas";
+				$err = "Nah ah ah ahh!!!";
 			}
 		}
 	}

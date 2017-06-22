@@ -267,11 +267,18 @@
 	</section>
 
 <?php
+
+	/*
+	GOAL:
+	 SELECT * FROM `materiales` WHERE `tipoDeArchivo` LIKE 'video' AND `estado` LIKE 'Sonora'
+	*/
+
 	$the_function = '';
 	$the_search = '';
 	$file_type_query = '';
 
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' ):
+
 		$file_type_query = ($_POST['file_type']) ? $_POST['file_type']: '';
 		$state_query = ($_POST['state']) ? $_POST['state']: '';
 		$unity_query = ($_POST['unity']) ? $_POST['unity']: '';
@@ -295,47 +302,69 @@
 		$actions_query = ($_POST['actions']) ? $_POST['actions']: '';
 
 		//save values to a general array
-		$arr_queries = array($file_type_query,$state_query,$unity_query,$gender_query,$type_query,$space_query,$population_query,$ecosystem_query,$light_query,$camera_query,$movement_query,$sound_query,$subject_query,$geometry_query,$numericPresence_query,$color_query,$rythm_query,$intensity_query,$impact_query,$theme_query,$actions_query);
+		$arr_queries = array(
+				'tipoDeArchivo'=>$file_type_query,
+				'estado'=>$state_query,
+				'unidad'=>$unity_query,
+				'genero'=>$gender_query,
+				'tipo'=>$type_query,
+				'espacio'=>$space_query,
+				'población'=>$population_query,
+				'ecosistema'=>$ecosystem_query,
+				'luz'=>$light_query,
+				'cámara'=>$camera_query,
+				'movimiento'=>$movement_query,
+				'sonido'=>$sound_query,
+				'sujeto'=>$subject_query,
+				'geometríaDominante'=>$geometry_query,
+				'presenciaNumérica'=>$numericPresence_query,
+				'color'=>$color_query,
+				'ritmo'=>$rythm_query,
+				'nuevaIntensidad'=>$intensity_query,
+				'impacto'=>$impact_query,
+				'temas'=>$theme_query,
+				'acciones'=>$actions_query);
 
-		// print_r($arr_queries);
-		// echo "<br>";
+		// echo "<pre>";
+		// 	print_r($arr_queries);
+		// echo "</pre>";
 
+
+		$arr_keys = array();
+		$arr_values = array();
 		$arr = array();
-		foreach ($arr_queries as $key => $value){
-			if($value == ''){
+		foreach ($arr_queries as $key => $value):
+			if($value == ''):
 				//do nothing
-			}else{
+			else:
 				//save to array
-				array_push($arr, $value);
-			}
+				array_push($arr_values, $value);
+				array_push($arr_keys, $key);
+			endif;
+		endforeach;
+
+		//save key-val pairs array
+		$arr = array_combine($arr_keys, $arr_values);
+
+		// echo "<pre>";
+		// 	print_r($arr);
+		// echo "</pre>";
+		$counting_index = 0;
+		$el_query_part = '';
+		foreach ($arr as $k => $v) {
+			$el_query_part .= $k." LIKE ". "'%".$v."%'" ." AND ";
+			$counting_index++;
 		}
-
-		$q_val0 = '';
-		$q_val1 = '';
-		if(is_array($arr) && !empty($arr) ):
-			foreach ($arr as $key => $value) {
-				if( ($value == 'objeto') ||  ($value == 'video') || ($value == 'imagen') || ($value == 'sonido') || ($value == 'texto') ){
-					$q_val0 = $value;
-				}
-				if( ($value == 'baja-california') ||  ($value == 'baja-california-sur') || ($value == 'sonora') || ($value == 'sinaloa') || ($value == 'nayarit') ){
-					$q_val1 = $value;
-				}
-			}
-
-			$col_v0 = ($q_val0) ? 'objeto' : '';
-			$col_v1 = ($q_val1) ? 'estado' : '';
-
-			echo $col_v0."  ".$col_v1."<br>";
-
-			// echo $q_val1." ".$q_val0."<br>";
-			// print_r($arr);
-		endif;	
+		$elquery = "SELECT * FROM materiales WHERE ".$el_query_part;
+		$elquery = substr($elquery, 0, -4);
+		echo $elquery.";";
 
 	else:
 
 		echo "no se ha mandado la forma";
 	
-	endif;	
+	endif;
+	/*
 
 	// echo ($file_type_query."<br>".$state_query."<br>".$unity_query."<br>".$gender_query."<br>".$type_query."<br>".$space_query."<br>".$population_query."<br>".$ecosystem_query."<br>".$light_query."<br>".$camera_query."<br>".$movement_query."<br>".$sound_query."<br>".$subject_query."<br>".$geometry_query."<br>".$numericPresence_query."<br>".$color_query."<br>".$rythm_query."<br>".$intensity_query."<br>".$impact_query."<br>".$theme_query."<br>".$actions_query."<br>");
 
@@ -345,6 +374,6 @@
 	}else{
 		echo "<br>empty";
 	}
-
+*/
 	?>
 <?php include('footer.php'); ?>

@@ -1,6 +1,12 @@
-<?php 
+<?php
+	/*
+	 * Funciones principales del sistema
+	 * 
+	 *
+	*/
+
 	ini_set('display_errors', 'On');
-	error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO TERMINE DE HACE DEBUG
+	error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO TERMINE DE HACER DEBUG
 
 	/*DEBUG DE UNA VARIABLE DADA*/
 	function debug_out($input) {
@@ -10,7 +16,6 @@
 	    }
 	}
 
-	/*SISTEMA DE FUNCIONES ESENCIALES PARA LA EJECUCIÓN DEL PROGRAMA*/
 	function de_get_all($dbconn){
 		
 		$query = 'SELECT * FROM materiales';

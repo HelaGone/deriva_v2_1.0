@@ -1,4 +1,9 @@
-<?php 
+<?php
+	/*
+	 * Comprueba la existencia de una sesion
+	 * Incluye la conexión a db: observa al usuario
+	 * Dirige a home si no existe sesión
+	*/
 	include('connect_to_db.php'); 
 	session_start();
 

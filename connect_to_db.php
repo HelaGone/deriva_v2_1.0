@@ -1,6 +1,10 @@
 <?php 
+/*
+ * Modo debug
+ * Conecta a db
+*/
 ini_set('display_errors', 'On');
-error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO TERMINE DE HACE DEBUG
+error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO TERMINE DE HACER DEBUG
 
 DEFINE('DB_USER', 'root');
 DEFINE('DB_PSWD', 'root');
