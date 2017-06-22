@@ -3,6 +3,7 @@ $(document).ready(function(){
 
 
 	$('.to_main').on('click', function(){
+		console.log('click');
 		window.location.href = 'admin-area.php';
 
 	});

@@ -1,4 +1,5 @@
 <?php include('connect_to_db.php'); ?>
+<?php include('header.php'); ?>
 
 	<?php
 		if( isset($_POST['filename']) && !empty($_POST['filename']) && isset($_POST['actions']) && !empty($_POST['actions']) ){
@@ -57,5 +58,7 @@
 
 		}//END IF ISSET && NOT EMPTY
 	?>
+
+	<button class="to_main">Regrasar al panel principal</button>
 
 <?php include('footer.php'); ?>
