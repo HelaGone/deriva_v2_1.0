@@ -219,7 +219,8 @@
 			<input type="text" name="theme" placeholder="Tema">
 
 			<!-- <label for="actions">Acciones</label> -->
-			<select form="filter_form" name="actions" >
+			<input type="text" name="actions" placeholder="Acción"><br>	
+			<!-- <select form="filter_form" name="actions" >
 				<option value="">Acción</option>
 				<option value="cavar">Cavar</option>
 				<option value="cocinar">Cocinar</option>
@@ -248,12 +249,12 @@
 				<option value="desvestir">Desvestir</option>
 				<option value="posar">Posar</option>
 				<option value="degollar">Degollar</option>
-			</select><br>
+			</select><br> -->
 
-			<input type="submit" value="Filtrar">
-			<input type="reset" value="Reset">
+			<input type="submit" value="Filtrar" class="go">
+			<input type="reset" value="Reset" class="reset">
 		</form>
-			<button class="to_main">Regrasar al panel principal</button>
+			<button class="to_main back">Regresar</button>
 
 			
 			<!-- <label for="get_all">Enlistar todas las entradas</label> -->

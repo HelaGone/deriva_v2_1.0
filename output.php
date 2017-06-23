@@ -57,11 +57,13 @@
 		$counting_index = 0;
 		$el_query_part = '';
 		foreach ($arr as $k => $v) {
+			$v = str_replace('-', ' ', $v);
 			$el_query_part .= $k." LIKE ". "'%".$v."%'" ." AND ";
 			$counting_index++;
 		}
 		$elquery = "SELECT * FROM materiales WHERE ".$el_query_part;
 		$elquery = substr($elquery, 0, -4);
+		echo $elquery;
 		if( !($result = mysqli_query($dbconn, $elquery)) ){
 			die('Error!');
 		}else{	
@@ -87,59 +89,63 @@
 							</div>
 						</div>
 					</section>
-				</section>			
-				<table class="result_table">
-					<tbody>
-						<tr>
-							<th>ID</th>
-							<th>Nombre</th>
-							<th>Tipo</th>
-							<th>nNombre</th>
-							<th>Autor</th>
-							<th>Subs</th>
-							<th>Créditos</th>
-							<th>Fecha</th>
-							<th>Lat</th>
-							<th>Lon</th>
-							<th>Estado</th>
-							<th>Mun/Ciu</th>
-							<th>Lugar</th>
-							<th>Serie Nombre</th>
-							<th>Serie Parte</th>
-							<th>Preg</th>
-							<th>nPreg</th>
-							<th>Unidad</th>
-							<th>Género</th>
-							<th>Tipo</th>
-							<th>Espacio</th>
-							<th>Población</th>
-							<th>Ecosistema</th>
-							<th>Luz</th>
-							<th>Cámara</th>
-							<th>Movimiento</th>
-							<th>Sonido</th>
-							<th>Sujeto</th>
-							<th>Geometría</th>
-							<th>nPresencia</th>
-							<th>Color</th>
-							<th>Ritmo</th>
-							<th>nIntensidad</th>
-							<th>Impacto</th>
-							<th>Temas</th>
-							<th>Acciones</th>
-						</tr>
-						<?php 
-							foreach ($s_arr as $key => $value) {
-								echo "<tr>";
-									foreach ($value as $k => $v) {
-										echo "<td>".$v."</td>";
-									}
-								echo "</tr>";
-								// echo "<tr><td>".$mks[0]."</td><td>".$mks[1]."</td></tr>";
-							}
-						?>
-					</tbody>
-				</table>
+				</section>
+				<section id="sec_res_table"> 
+					<table class="result_table">
+						<thead>
+							<tr>
+								<th>ID</th>
+								<th>Nombre</th>
+								<th>Tipo</th>
+								<th>nNombre</th>
+								<th>Autor</th>
+								<th>Subs</th>
+								<th>Créditos</th>
+								<th>Fecha</th>
+								<th>Lat</th>
+								<th>Lon</th>
+								<th>Estado</th>
+								<th>Mun/Ciu</th>
+								<th>Lugar</th>
+								<th>Serie Nombre</th>
+								<th>Serie Parte</th>
+								<th>Preg</th>
+								<th>nPreg</th>
+								<th>Unidad</th>
+								<th>Género</th>
+								<th>Tipo</th>
+								<th>Espacio</th>
+								<th>Población</th>
+								<th>Ecosistema</th>
+								<th>Luz</th>
+								<th>Cámara</th>
+								<th>Movimiento</th>
+								<th>Sonido</th>
+								<th>Sujeto</th>
+								<th>Geometría</th>
+								<th>nPresencia</th>
+								<th>Color</th>
+								<th>Ritmo</th>
+								<th>nIntensidad</th>
+								<th>Impacto</th>
+								<th>Temas</th>
+								<th>Acciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<?php 
+								foreach ($s_arr as $key => $value) {
+									echo "<tr>";
+										foreach ($value as $k => $v) {
+											echo "<td>".$v."</td>";
+										}
+									echo "</tr>";
+									// echo "<tr><td>".$mks[0]."</td><td>".$mks[1]."</td></tr>";
+								}
+							?>
+						</tbody>
+					</table>
+				</section>		
 			<?php	
 			endif;
 		}

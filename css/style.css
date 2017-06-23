@@ -11,11 +11,13 @@ a{color:#666;text-decoration: none;}
 
 
 .lbl_num_res{font-size: 140%;font-weight: bold;}
-.nme_resultados{}
-.file_names_pool div.nmes{height: 255px;width: 100%;overflow: auto;}
-.result_table{font-size: 50%;}
-.result_table td{border:1px solid rgba(127,0,0,0.05);}
-.result_table th{min-width:calc(2.7% - 2px);border:1px solid rgba(0,0,255,0.05);}
+.nme_resultados{margin-top:20px;}
+.file_names_pool{border:1px solid rgba(0,0,0,0.05);}
+.file_names_pool div.nmes{height: 200px;width: 100%;overflow: auto;}
+.result_table{font-size: 80%;margin-top: 20px;}
+.result_table td{border:1px solid rgba(127,0,0,0.05);white-space: nowrap;width:1px;padding:5px;}
+.result_table th{min-width:calc(2.7% - 2px);border:1px solid rgba(0,0,255,0.05);white-space: nowrap;padding:5px;font-weight: bold;background: rgba(0,255,255,0.1);}
+#sec_res_table{overflow: scroll;height:700px;min-width:1200px;max-width: 1920px;}
 
 .main_section{width:70%; margin:0 auto;}
 .navigation{padding-top:70px;}
@@ -29,9 +31,17 @@ a{color:#666;text-decoration: none;}
 #main_input_form table tr td input, #main_input_form table tr td select{margin-top:15px;width:80%;}
 
 #inner_output_section{padding-top:90px;}
-#filter_form{padding:20px;margin-bottom:60px;}
-#filter_form select, #filter_form input{width:200px;}
+/*#filter_form{padding:20px;margin-bottom:60px;}*/
+#filter_form select, #filter_form input{width:200px;margin-top:10px;}
 
 .separdor{width:100%;height:2px;background: #000;margin:20px 0px;}
 
+/*
+ * BOTONES 
+ * GO, RESET & BACK
+ */
+
+.go{background:#22dd00;border:none;height: 40px;outline:none;border-radius: 3px;box-shadow: 1px 1px 3px rgba(0,0,0,0.2);color:#424242;font-weight: bold;font-size: 90%;margin-top:10px;}
+.reset{background:#dd2200;border:none;height: 40px;outline:none;border-radius: 3px;box-shadow: 1px 1px 3px rgba(0,0,0,0.2);color:#424242;font-weight: bold;font-size: 90%;margin-top:10px;}
+.back{background:#22bbdd;border:none;height: 40px;width:200px;outline:none;border-radius: 3px;box-shadow: 1px 1px 3px rgba(0,0,0,0.2);color:#424242;font-weight: bold;font-size: 90%;margin-top:10px;}
 
