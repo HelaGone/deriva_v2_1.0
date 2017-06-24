@@ -2,7 +2,8 @@
 <?php include('header.php'); ?>
 
 	<?php
-
+	$check_done = false;
+	$check_done1 = false;
 	$target_dir = "images/";
 	$target_file = $target_dir.basename($_FILES["_img"]["name"]);
 	$upload_ok = 1;
@@ -46,7 +47,7 @@
 			$impact = ($_POST['impact'])? $_POST['impact']: NULL;
 			$themes = ($_POST['themes'])? $_POST['themes']: NULL;
 			$actions = ($_POST['actions'])? $_POST['actions']: NULL;
-			$jaypigee = $target_file;
+			$jaypigee = ($target_file)?$target_file:NULL;
 
 			//CHEK IF IS IMAGE
 			$check = getimagesize($_FILES["_img"]["tmp_name"]);
@@ -56,43 +57,57 @@
 				$upload_ok = 0;
 			}
 
-			//SQL INSERT
-			 		$insert = "INSERT INTO materiales (nombreArchivo,tipoDeArchivo,nuevoNombre,autor,subtítulos,creditos,fecha,geoLatitud,geoLongitud,estado,municipioCiudad,lugar,serieNombre,serieParte,Quepregunta,preguntaNumero,unidad,género,tipo,espacio,población,ecosistema,luz,cámara,movimiento,sonido,sujeto,geometríaDominante,presenciaNumérica,color,ritmo,nuevaIntensidad,impacto,temas,acciones,image) VALUES ('$filename','$filetype','$newname','$author','$subtitles','$credits','$date','$geoLat','$geoLon','$state','$city','$place','$serieName','$seriePart','$whichQuestion','$questionNumber','$unity','$gender','$type','$space','$population','$ecosystem','$light','$camera','$movement','$sound','$subject','$geometry','$numericPresence','$color','$rythm','$newIntensity','$impact','$themes','$actions','$jaypigee')";
-						if(!mysqli_query($dbconn,$insert)){
-							die(mysqli_error($dbconn));
-							echo "ERROR!";
-						}else{//end second if
-							echo "EXITO!!!";
-						}
 		}//END IF ISSET && NOT EMPTY
+?>
+
+	<section id="success_screen">
+<?php
 		// FILE ALREADY EXISTS
 	if (file_exists($target_file)) {
-	    echo "El archivo ya existe.";
-	    $upload_ok = 0;
+		$upload_ok = 0;
+		?>
+		<h2>El archivo ya existe.</h2>
+		<button class="to_insert back">Regresar</button>
+	<?php		
 	}
 	// FILE SIZE
-	if ($_FILES["_img"]["size"] > 500000) {
-	    echo "El archivo es muy grande.";
+	if ($_FILES["_img"]["size"] > 5000000) {
 	    $upload_ok = 0;
+	    echo "El archivo es muy grande.";
 	}
 	// FORMATS ALLOWED
-	if($img_file_type != "jpg" && $img_file_type != "png" && $img_file_type != "jpeg"
-	&& $img_file_type != "gif" ) {
-	    echo "Solo archivos JPG, JPEG, PNG & GIF son permitidos.";
+	if($img_file_type != "jpg" && $img_file_type != "png" && $img_file_type != "jpeg" && $img_file_type != "gif" ) {
+		?>
+		<h2>Solo archivos JPG, JPEG, PNG &amp; GIF son permitidos.</h2>
+		<button class="to_insert back">Regresar</button>
+	<?php	
 	    $upload_ok = 0;
 	}
 	// LAST CHECK
 	if ($upload_ok == 0) {
-	    echo "El archivo no se sibió.";
-	// UPLOAD FILE
+		//el archivo no se subió 
 	} else {
+		// UPLOAD FILE
 	    if (move_uploaded_file($_FILES["_img"]["tmp_name"], $target_file)) {
-	    	echo ":."
-	        // echo "El archivo: ". basename( $_FILES["_img"]["name"]). " subió con éxcito.";
+	    	$check_done1 = true;
+	    	//SQL INSERT
+	 		$insert = "INSERT INTO materiales (nombreArchivo,tipoDeArchivo,nuevoNombre,autor,subtítulos,creditos,fecha,geoLatitud,geoLongitud,estado,municipioCiudad,lugar,serieNombre,serieParte,Quepregunta,preguntaNumero,unidad,género,tipo,espacio,población,ecosistema,luz,cámara,movimiento,sonido,sujeto,geometríaDominante,presenciaNumérica,color,ritmo,nuevaIntensidad,impacto,temas,acciones,image) VALUES ('$filename','$filetype','$newname','$author','$subtitles','$credits','$date','$geoLat','$geoLon','$state','$city','$place','$serieName','$seriePart','$whichQuestion','$questionNumber','$unity','$gender','$type','$space','$population','$ecosystem','$light','$camera','$movement','$sound','$subject','$geometry','$numericPresence','$color','$rythm','$newIntensity','$impact','$themes','$actions','$jaypigee')";
+				if(!mysqli_query($dbconn,$insert)){
+					die(mysqli_error($dbconn));
+					echo "ERROR!";
+					$check_done = false;
+				}else{//end second if
+					$check_done = true;
+					?>
+					<h2>Los datos se han guardado con éxito</h2>
+					<button class="to_insert back">Regresar</button>
+				<?php	
+				}
 	    } else {
 	        echo "Error subiendo archivo.";
+	        $check_done1 = false;
 	    }
 	}
 	?>
-	<button class="to_main">Regresar</button>
+	</section>
 <?php include('footer.php'); ?>

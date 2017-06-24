@@ -387,14 +387,14 @@
 					<td></td>
 					<td></td>
 					<td>
-						<input type="reset" name="" value="Reset" class="reset">
+						<input type="submit" name="" value="Guardar" class="go">
 					</td>
 					<td>
-						<input type="submit" name="" value="Guardar" class="go">
+						<input type="reset" name="" value="Reset" class="reset">
 					</td>
 				</tr>
 			</table>
 		</form>
-		<button class="to_main back">Regrasar al panel principal</button>
+		<button class="to_main back">Regresar</button>
 	</section>
 <?php include('footer.php'); ?>

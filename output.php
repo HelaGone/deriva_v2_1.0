@@ -63,7 +63,7 @@
 		}
 		$elquery = "SELECT * FROM materiales WHERE ".$el_query_part;
 		$elquery = substr($elquery, 0, -4);
-		echo $elquery;
+		// echo $elquery;
 		if( !($result = mysqli_query($dbconn, $elquery)) ){
 			die('Error!');
 		}else{	

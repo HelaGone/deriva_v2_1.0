@@ -29,6 +29,7 @@ a{color:#666;text-decoration: none;}
 #main_input_form table{width:100%;}
 #main_input_form table tr{height:70px;text-align: center;}
 #main_input_form table tr td input, #main_input_form table tr td select{margin-top:15px;width:80%;}
+#input_form button.to_main{float:right;margin-right: 20px;}
 
 #inner_output_section{padding-top:90px;}
 /*#filter_form{padding:20px;margin-bottom:60px;}*/
@@ -44,4 +45,6 @@ a{color:#666;text-decoration: none;}
 .go{background:#22dd00;border:none;height: 40px;outline:none;border-radius: 3px;box-shadow: 1px 1px 3px rgba(0,0,0,0.2);color:#424242;font-weight: bold;font-size: 90%;margin-top:10px;}
 .reset{background:#dd2200;border:none;height: 40px;outline:none;border-radius: 3px;box-shadow: 1px 1px 3px rgba(0,0,0,0.2);color:#424242;font-weight: bold;font-size: 90%;margin-top:10px;}
 .back{background:#22bbdd;border:none;height: 40px;width:200px;outline:none;border-radius: 3px;box-shadow: 1px 1px 3px rgba(0,0,0,0.2);color:#424242;font-weight: bold;font-size: 90%;margin-top:10px;}
+
+#success_screen{width: 50%;margin: 15% auto;text-align: center;}
 
