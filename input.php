@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 	<section id="input_form" class="main_section">
-		<form id="main_input_form" method="post" action="process-insert.php">
+		<form id="main_input_form" method="post" action="process-insert.php" enctype="multipart/form-data">
 			<table>
 				<tr class="table_row">
 					<td>
@@ -10,7 +10,7 @@
 
 					<td>
 						<label for="filetype">Tipo de Archivo</label><br>
-						<select form="main_input_form" name="filetype" required>
+						<select form="main_input_form" name="filetype" >
 							<option value="">Selecciona uno</option>
 							<option value="objeto" >Objeto</option>
 							<option value="video" >Video</option>
@@ -54,7 +54,7 @@
 					
 					<td>
 						<label for="state">Estado</label><br>
-						<select form="main_input_form" name="state" required>
+						<select form="main_input_form" name="state" >
 							<option value="">Selecciona un estado</option>
 							<option value="baja-california">Baja California</option>
 							<option value="baja-california-sur">Baja California Sur</option>
@@ -121,7 +121,7 @@
 
 					<td>
 						<label for="unity">Unidad</label><br>
-						<select form="main_input_form" name="unity" required>
+						<select form="main_input_form" name="unity" >
 							<option value="">Selecciona una unidad</option>
 							<option value="satelite">Satélite</option>
 							<option value="capsula">Cápsula</option>
@@ -134,7 +134,7 @@
 				<tr class="table_row">
 					<td>
 						<label for="type">Tipo</label><br>
-						<select form="main_input_form" name="type" required>
+						<select form="main_input_form" name="type" >
 							<option value="">Selecciona un tipo</option>
 							<option value="pregunta">Pregunta</option>
 							<option value="testimonio">Testimonio</option>
@@ -151,7 +151,7 @@
 					
 					<td>
 						<label for="space">Espacio</label><br>
-						<select form="main_input_form" name="space" required>
+						<select form="main_input_form" name="space" >
 							<option value="">Selecciona un espacio</option>
 							<option value="interior">Interior</option>
 							<option value="exterior">Exterior</option>
@@ -160,7 +160,7 @@
 
 					<td>
 						<label for="population">Población</label><br>
-						<select form="main_input_form" name="population" required>
+						<select form="main_input_form" name="population" >
 							<option value="">Selecciona una población</option>
 							<option value="rural">Rural</option>
 							<option value="urbana">Urbana</option>
@@ -169,7 +169,7 @@
 					
 					<td>
 						<label for="ecosystem">Ecosistema</label><br>
-						<select form="main_input_form" name="ecosystem" required>
+						<select form="main_input_form" name="ecosystem" >
 							<option value="">Selecciona un ecosistema</option>
 							<option value="bosque">Bosque</option>
 							<option value="selva">Selva</option>
@@ -185,7 +185,7 @@
 					
 					<td>
 						<label for="light">Luz</label><br>
-						<select form="main_input_form" name="light" required>
+						<select form="main_input_form" name="light" >
 							<option value="">Selecciona una luz</option>
 							<option value="dia">Día</option>
 							<option value="tarde">Tarde</option>
@@ -198,7 +198,7 @@
 				<tr class="table_row">
 					<td>
 						<label for="movement">Movimiento</label><br>
-						<select form="main_input_form" name="movement" required>
+						<select form="main_input_form" name="movement" >
 							<option value="">Selecciona un movimiento</option>
 							<option value="arriba">Arriba</option>
 							<option value="abajo">Abajo</option>
@@ -211,7 +211,7 @@
 					
 					<td>
 						<label for="sound">Sonido</label><br>
-						<select form="main_input_form" name="sound" required>
+						<select form="main_input_form" name="sound" >
 							<option value="">Selecciona un sonido</option>
 							<option value="ambiente">Ambiente</option>
 							<option value="dialogo">Diálogo</option>
@@ -223,7 +223,7 @@
 					
 					<td>
 						<label for="subject">Sujeto</label><br>
-						<select form="main_input_form" name="subject" required>
+						<select form="main_input_form" name="subject" >
 							<option value="">Selecciona un sujeto</option>
 							<option value="animal">Animal</option>
 							<option value="humano">Humano</option>
@@ -236,7 +236,7 @@
 					
 					<td>
 						<label for="geometry">Geometría dominante</label><br>
-						<select form="main_input_form" name="geometry" required>
+						<select form="main_input_form" name="geometry" >
 							<option value="">Selecciona una geometría</option>
 							<option value="rectangulo">Rectángulo</option>
 							<option value="triangulo">Triángulo</option>
@@ -250,7 +250,7 @@
 
 					<td>
 						<label for="numericPresence">Presencia numérica</label><br>
-						<select form="main_input_form" name="numericPresence" required>
+						<select form="main_input_form" name="numericPresence" >
 							<option value="">Selecciona un número</option>
 							<option value="uno">Uno</option>
 							<option value="dos">Dos</option>
@@ -268,7 +268,7 @@
 				<tr class="table_row">
 					<td>
 						<label for="rythm">Ritmo</label><br>
-						<select form="main_input_form" name="rythm" required>
+						<select form="main_input_form" name="rythm" >
 							<option value="">Selecciona un ritmo</option>
 							<option value="rapido">Rápido</option>
 							<option value="medio">Medio</option>
@@ -284,7 +284,7 @@
 
 					<td>
 						<label for="impact">Impacto</label><br>
-						<select form="main_input_form" name="impact" required>
+						<select form="main_input_form" name="impact" >
 							<option value="">Selecciona un impacto</option>
 							<option value="personal">Personal</option>
 							<option value="comunidad">Comunidad</option>
@@ -299,7 +299,7 @@
 					
 					<td>
 						<label for="actions">Acciones</label><br>
-						<select form="main_input_form" name="actions" required>
+						<select form="main_input_form" name="actions" >
 							<option value="">Selecciona una acción</option>
 							<option value="cavar">Cavar</option>
 							<option value="cocinar">Cocinar</option>
@@ -345,7 +345,7 @@
 
 					<td>
 						<label for="gender">Género</label><br>
-						<select form="main_input_form" name="gender" required>
+						<select form="main_input_form" name="gender" >
 							<option value="">Selecciona un género</option>
 							<option value="documental">Documental</option>
 							<option value="ficcion">Ficción</option>
@@ -354,7 +354,7 @@
 
 					<td>
 						<label for="camera">Cámara</label><br>
-						<select form="main_input_form" name="camera" required>
+						<select form="main_input_form" name="camera" >
 							<option value="">Selecciona una cámara</option>
 							<option value="dinamica">Dinámica</option>
 							<option value="estatica">Estática</option>
@@ -363,7 +363,7 @@
 
 					<td>
 						<label for="color">Color</label><br>
-						<select form="main_input_form" name="color" required>
+						<select form="main_input_form" name="color" >
 							<option value="">Selecciona un color</option>
 							<option value="verde">Vede</option>
 							<option value="rojo">Rojo</option>
@@ -382,24 +382,19 @@
 
 				<tr class="table_row controls">
 					<td>
-						<input type="file" name="_img" enctype="multipart/form-data">
+						<input type="file" name="_img" id="_img">
 					</td>
 					<td></td>
+					<td></td>
 					<td>
-						<button class="to_main">
-							Regrasar al panel principal
-						</button>
+						<input type="reset" name="" value="Reset" class="reset">
 					</td>
 					<td>
-						<input type="reset" name="" value="Reset">
-					</td>
-					<td>
-						<input type="submit" name="" value="Guardar">
+						<input type="submit" name="" value="Guardar" class="go">
 					</td>
 				</tr>
-
-
 			</table>
 		</form>
+		<button class="to_main back">Regrasar al panel principal</button>
 	</section>
 <?php include('footer.php'); ?>
