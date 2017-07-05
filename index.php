@@ -40,6 +40,6 @@
 		<input type="submit" value="Entrar" >
 	</form>
 	<div>
-		<?php echo "<div class='error'>".$err."</div>";?>
+		<?php //echo "<div class='error'>".$err."</div>";?>
 	</div>
 </section>

@@ -38,10 +38,11 @@
 
 		//save values to a general array
 		$arr_queries = array('tipoDeArchivo'=>$file_type_query,'estado'=>$state_query,'unidad'=>$unity_query,'género'=>$gender_query,'tipo'=>$type_query,'espacio'=>$space_query,'población'=>$population_query,'ecosistema'=>$ecosystem_query,'luz'=>$light_query,'cámara'=>$camera_query,'movimiento'=>$movement_query,'sonido'=>$sound_query,'sujeto'=>$subject_query,'geometríaDominante'=>$geometry_query,'presenciaNumérica'=>$numericPresence_query,'color'=>$color_query,'ritmo'=>$rythm_query,'nuevaIntensidad'=>$intensity_query,'impacto'=>$impact_query,'temas'=>$theme_query,'acciones'=>$actions_query);
-
+		
 		$arr_keys = array();
 		$arr_values = array();
 		$arr = array();
+
 		foreach ($arr_queries as $key => $value):
 			if($value == ''):
 				//do nothing

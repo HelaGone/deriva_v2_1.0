@@ -57,7 +57,6 @@
 				$upload_ok = 0;
 			}
 
-		}//END IF ISSET && NOT EMPTY
 ?>
 
 	<section id="success_screen">
@@ -91,7 +90,9 @@
 	    if (move_uploaded_file($_FILES["_img"]["tmp_name"], $target_file)) {
 	    	$check_done1 = true;
 	    	//SQL INSERT
-	 		$insert = "INSERT INTO materiales (nombreArchivo,tipoDeArchivo,nuevoNombre,autor,subtítulos,creditos,fecha,geoLatitud,geoLongitud,estado,municipioCiudad,lugar,serieNombre,serieParte,Quepregunta,preguntaNumero,unidad,género,tipo,espacio,población,ecosistema,luz,cámara,movimiento,sonido,sujeto,geometríaDominante,presenciaNumérica,color,ritmo,nuevaIntensidad,impacto,temas,acciones,image) VALUES ('$filename','$filetype','$newname','$author','$subtitles','$credits','$date','$geoLat','$geoLon','$state','$city','$place','$serieName','$seriePart','$whichQuestion','$questionNumber','$unity','$gender','$type','$space','$population','$ecosystem','$light','$camera','$movement','$sound','$subject','$geometry','$numericPresence','$color','$rythm','$newIntensity','$impact','$themes','$actions','$jaypigee')";
+	    	// if($filename != '' && $filetype != '' && $newname != '' && $author != '' && $subtitles != '' && $credits != '' && $date != '' && $geoLat != '' && $geoLon != '' && $state != '' && $city != '' && $place != '' && $serieName != '' && $seriePart != '' && $whichQuestion != '' && $questionNumber != '' && $unity != '' && $gender != '' && $type != '' && $space != '' && $population != '' && $ecosystem != '' && $light != '' && $camera != '' && $movement != '' && $sound != '' && $subject != '' && $geometry != '' && $numericPresence != '' && $color != '' && $rythm != '' && $newIntensity != '' && $impact != '' && $themes != '' && $actions != '' && $jaypigee):
+	 			$insert = "INSERT INTO materiales (nombreArchivo,tipoDeArchivo,nuevoNombre,autor,subtítulos,creditos,fecha,geoLatitud,geoLongitud,estado,municipioCiudad,lugar,serieNombre,serieParte,Quepregunta,preguntaNumero,unidad,género,tipo,espacio,población,ecosistema,luz,cámara,movimiento,sonido,sujeto,geometríaDominante,presenciaNumérica,color,ritmo,nuevaIntensidad,impacto,temas,acciones,image) VALUES ('$filename','$filetype','$newname','$author','$subtitles','$credits','$date','$geoLat','$geoLon','$state','$city','$place','$serieName','$seriePart','$whichQuestion','$questionNumber','$unity','$gender','$type','$space','$population','$ecosystem','$light','$camera','$movement','$sound','$subject','$geometry','$numericPresence','$color','$rythm','$newIntensity','$impact','$themes','$actions','$jaypigee')";
+	 		// endif;
 				if(!mysqli_query($dbconn,$insert)){
 					die(mysqli_error($dbconn));
 					echo "ERROR!";
@@ -108,6 +109,11 @@
 	        $check_done1 = false;
 	    }
 	}
+echo '</section>';
+		}else{
+			echo '<section id="success_screen">';
+				echo "ERROR!!";
+			echo '</section>';
+		}//END IF ISSET && NOT EMPTY
 	?>
-	</section>
 <?php include('footer.php'); ?>
