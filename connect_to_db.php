@@ -9,7 +9,8 @@ error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO T
 DEFINE('DB_USER', 'root');
 DEFINE('DB_PSWD', 'root');
 DEFINE('DB_HOST', 'localhost');
-DEFINE('DB_NAME', 'derivaV2_db');
+// DEFINE('DB_NAME', 'derivaV2_db');
+DEFINE('DB_NAME', 'Deriva_V3');
 //deriva_cuestionario_db
 $dbconn = mysqli_connect(DB_HOST, DB_USER, DB_PSWD, DB_NAME);
 mysqli_set_charset($dbconn,'utf8');

@@ -32,7 +32,7 @@
 
 					<td>
 						<label for="subtitles">Subtítulos</label><br>
-						<input type="text" name="subtitles" >
+						<input type="number" name="subtitles" min="0" max="1">
 					</td>
 				</tr>
 
@@ -40,16 +40,6 @@
 					<td>
 						<label for="date">Fecha</label><br>
 						<input type="date" name="date" >
-					</td>
-					
-					<td>
-						<label for="geoLat">Latitud</label><br>
-						<input type="number" step="0.000001" name="geoLat" ><br>
-					</td>
-
-					<td>
-						<label for="geoLon">Longitud</label><br>
-						<input type="number" step="0.000001" name="geoLon" >
 					</td>
 					
 					<td>
@@ -96,28 +86,17 @@
 					</td>
 					
 					<td>
-				</tr>
-
-				<tr class="table_row">
-					<td>
 						<label for="serieName">Nombre de la serie</label><br>
 						<input type="text" name="serieName" >
 					</td>
 					
 					<td>
-						<label for="seriePart">Parte de la serie</label><br>
-						<input type="text" name="seriePart" >
-					</td>
-					
-					<td>
 						<label for="whichQuestion">Cuál pregunta</label><br>
-						<input type="text" name="whichQuestion" >
+						<input type="number" name="whichQuestion" min="1" max="30">
 					</td>
+				</tr>
 
-					<td>
-						<label for="questionNumber">Número de pregunta</label><br>
-						<input type="text" name="questionNumber" ><br>
-					</td>
+				<tr class="table_row">
 
 					<td>
 						<label for="unity">Unidad</label><br>
@@ -129,9 +108,7 @@
 							<option value="nexo">Nexo</option>
 						</select>	
 					</td>	
-				</tr>
 
-				<tr class="table_row">
 					<td>
 						<label for="type">Tipo</label><br>
 						<select form="main_input_form" name="type" >
@@ -182,6 +159,9 @@
 							<option value="sierra">Sierra</option>
 						</select>
 					</td>
+				</tr>
+
+				<tr class="table_row">
 					
 					<td>
 						<label for="light">Luz</label><br>
@@ -193,9 +173,7 @@
 							<option value="artificial">Artificial</option>
 						</select>
 					</td>
-				</tr>
 
-				<tr class="table_row">
 					<td>
 						<label for="movement">Movimiento</label><br>
 						<select form="main_input_form" name="movement" >
@@ -247,23 +225,8 @@
 							<option value="simetria">Simetría</option>
 						</select>
 					</td>
-
-					<td>
-						<label for="numericPresence">Presencia numérica</label><br>
-						<select form="main_input_form" name="numericPresence" >
-							<option value="">Selecciona un número</option>
-							<option value="uno">Uno</option>
-							<option value="dos">Dos</option>
-							<option value="tres">Tres</option>
-							<option value="cuatro">Cuatro</option>
-							<option value="cinco">Cinco</option>
-							<option value="seis">Seis</option>
-							<option value="siete">Siete</option>
-							<option value="ocho">Ocho</option>
-							<option value="nueve">Nueve</option>
-						</select>
-					</td>
 				</tr>
+
 
 				<tr class="table_row">
 					<td>
@@ -296,47 +259,14 @@
 						<label for="themes">Temas</label><br>
 						<input type="text" name="themes" >
 					</td>
-					
+
 					<td>
-						<label for="actions">Acciones</label><br>
-						<select form="main_input_form" name="actions" >
-							<option value="">Selecciona una acción</option>
-							<option value="cavar">Cavar</option>
-							<option value="cocinar">Cocinar</option>
-							<option value="reciclar">Reciclar</option>
-							<option value="linchar">Linchar</option>
-							<option value="disparar">Disparar</option>
-							<option value="vigilar">Vigilar</option>
-							<option value="celebrar">Celebrar</option>
-							<option value="cortar">Cortar</option>
-							<option value="golpear">Golpear</option>
-							<option value="bailar">Bailar</option>
-							<option value="cabalgar">Cabalgar</option>
-							<option value="matar">Matar</option>
-							<option value="comer">Comer</option>
-							<option value="acechar">Acechar</option>
-							<option value="manejar">Manejar</option>
-							<option value="encender">Encender</option>
-							<option value="cargar">Cargar</option>
-							<option value="amenazar">Amenazar</option>
-							<option value="pintar">Pintar</option>
-							<option value="limpiar">Limpiar</option>
-							<option value="regar">Regar</option>
-							<option value="musica">Música</option>
-							<option value="caminar">Caminar</option>
-							<option value="montar">Montar</option>
-							<option value="desvestir">Desvestir</option>
-							<option value="posar">Posar</option>
-							<option value="degollar">Degollar</option>
-						</select>
+						<label for="credits">Créditos</label><br>
+						<input type="number" name="credits" min="0" max="1">
 					</td>
 				</tr>
 
 				<tr class="table_row">
-					<td>
-						<label for="credits">Créditos</label><br>
-						<input type="text" name="credits" >
-					</td>
 
 					<td>
 						<label for="place">Lugar</label><br>

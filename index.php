@@ -7,7 +7,7 @@
 	if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$usuario = $_POST['usr'];
 		$password = $_POST['pass'];
-		$query = "SELECT * FROM usr_login WHERE usr = '$usuario' and pass = '$password'";
+		$query = "SELECT * FROM usr_login WHERE nme_usuario = '$usuario' and usr_password = md5('$password')";
 
 		if( !($result = mysqli_query($dbconn, $query) ) ){
 			die('Error!');
