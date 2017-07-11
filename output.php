@@ -103,17 +103,12 @@
 								<th>Subs</th>
 								<th>Créditos</th>
 								<th>Fecha</th>
-								<th>Lat</th>
-								<th>Lon</th>
 								<th>Estado</th>
 								<th>Mun/Ciu</th>
 								<th>Lugar</th>
 								<th>Serie Nombre</th>
-								<th>Serie Parte</th>
 								<th>Preg</th>
-								<th>nPreg</th>
 								<th>Unidad</th>
-								<th>Género</th>
 								<th>Tipo</th>
 								<th>Espacio</th>
 								<th>Población</th>
@@ -124,13 +119,11 @@
 								<th>Sonido</th>
 								<th>Sujeto</th>
 								<th>Geometría</th>
-								<th>nPresencia</th>
 								<th>Color</th>
 								<th>Ritmo</th>
 								<th>nIntensidad</th>
 								<th>Impacto</th>
 								<th>Temas</th>
-								<th>Acciones</th>
 							</tr>
 						</thead>
 						<tbody>

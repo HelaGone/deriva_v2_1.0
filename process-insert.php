@@ -2,14 +2,13 @@
 <?php include('header.php'); ?>
 
 <?php
-	$check_done = false;
-	$check_done1 = false;
+	$everything_ok = 0;
+	$upload_ok = 1;
 	$target_dir = "images/";
 	$target_file = $target_dir.basename($_FILES["_img"]["name"]);
-	$upload_ok = 1;
 	$img_file_type = pathinfo($target_file, PATHINFO_EXTENSION);
 
-	if( isset($_POST['filename']) && !empty($_POST['filename'])) {
+	if( isset($_POST['filename']) && !empty($_POST['filename']) && ($target_file != '') ) {
 
 		$filename = ($_POST['filename'])? $_POST['filename']: NULL;
 		$filetype = ($_POST['filetype'])? $_POST['filetype']: NULL;
@@ -90,55 +89,41 @@
 		<section id="success_screen">
 		<?php
 			// FILE ALREADY EXISTS
-			if (file_exists($target_file)) {
-				$upload_ok = 0;
-			?>
-				<h2>El archivo ya existe.</h2>
-				<button class="to_insert back">Regresar</button>
-		<?php		
-			}
+			if (file_exists($target_file)) {$upload_ok = 0;}
 			// FILE SIZE
-			if ($_FILES["_img"]["size"] > 5000000) {
-			    $upload_ok = 0;
-			    echo "El archivo es muy grande.";
-			}
+			if ($_FILES["_img"]["size"] > 5000000) {$upload_ok = 0;}
 			// FORMATS ALLOWED
-			if($img_file_type != "jpg" && $img_file_type != "png" && $img_file_type != "jpeg" && $img_file_type != "gif" ) {
-			?>
-				<h2>Solo archivos JPG, JPEG, PNG &amp; GIF son permitidos.</h2>
-				<button class="to_insert back">Regresar</button>
-		<?php	
-    			$upload_ok = 0;
-			}
+			if($img_file_type != "jpg" && $img_file_type != "png" && $img_file_type != "jpeg" && $img_file_type != "gif" ) {$upload_ok = 0;}
 			// LAST CHECK
 			if ($upload_ok == 0) {
-				//el archivo no se subió 
+				//UPLOAD FAILED
 			} else {
-				// UPLOAD FILE
-    			if (move_uploaded_file($_FILES["_img"]["tmp_name"], $target_file)) {
-    				$check_done1 = true;
-    				//SQL INSERT
- 					$insert = "INSERT INTO materiales (nombreArchivo,tipoDeArchivo,nuevoNombre,autor,subtitulos,creditos,fecha,estado,municipioCiudad,lugar,serieNombre,quepregunta,unidad,tipo,espacio,poblacion,ecosistema,luz,camara,movimiento,sonido,sujeto,geometriaDominante,color,ritmo,nuevaIntensidad,impacto,temas,imagen) VALUES ('$filename','$filetype','$newname','$author','$subtitles','$credits','$date','$state','$city','$place','$serieName','$whichQuestion','$unity','$type','$space','$population','$ecosystem','$light','$camera','$movement','$sound','$subject','$geometry','$color','$rythm','$newIntensity','$impact','$themes','$jaypigee')";
-					if(!mysqli_query($dbconn,$insert)){
-						die(mysqli_error($dbconn));
-						echo "ERROR!";
-						$check_done = false;
-					}else{//end second if
-						$check_done = true;
-						?>
-						<h2>Los datos se han guardado con éxito</h2>
-						<button class="to_insert back">Regresar</button>
-				<?php	
+				// UPLOAD FILE & SQL INSERT
+ 				$insert = "INSERT INTO materiales (nombreArchivo,tipoDeArchivo,nuevoNombre,autor,subtitulos,creditos,fecha,estado,municipioCiudad,lugar,serieNombre,quePregunta,unidad,tipo,espacio,poblacion,ecosistema,luz,camara,movimiento,sonido,sujeto,geometriaDominante,color,ritmo,nuevaIntensidad,impacto,temas,imagen) VALUES ('$filename','$filetype','$newname','$author','$subtitles','$credits','$date','$state','$city','$place','$serieName','$whichQuestion','$unity','$type','$space','$population','$ecosystem','$light','$camera','$movement','$sound','$subject','$geometry','$color','$rythm','$newIntensity','$impact','$themes','$jaypigee')";
+				if(!mysqli_query($dbconn,$insert)){
+					$everything_ok = 0;
+					die(mysqli_error($dbconn));
+					echo "ERROR!";
+				}else{
+					$everything_ok = 1;
+					if(move_uploaded_file($_FILES["_img"]["tmp_name"], $target_file)){
+						$everything_ok = 1;
+					}else{
+						$everything_ok = 0;
 					}
-    			} else {
-			        echo "Error subiendo archivo.";
-			        $check_done1 = false;
-			    }
+				}
+
+				if($everything_ok == 1){
+					echo '<h2>Los datos se han guardado con éxito</h2><button class="to_insert back">Regresar</button>';
+				}else{
+					echo 'Fail';
+				}
+
 			}
 		echo '</section>';
 	}else{
 		echo '<section id="success_screen">';
-			echo "ERROR!!";
+			echo "ERROR!! Falta el nombre de archivo o la imagen";
 		echo '</section>';
 	}//END IF ISSET && NOT EMPTY
 ?>

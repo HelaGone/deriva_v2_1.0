@@ -32,7 +32,7 @@
 
 					<td>
 						<label for="subtitles">Subtítulos</label><br>
-						<input type="number" name="subtitles" min="0" max="1">
+						<input type="text" name="subtitles">
 					</td>
 				</tr>
 
@@ -262,7 +262,7 @@
 
 					<td>
 						<label for="credits">Créditos</label><br>
-						<input type="number" name="credits" min="0" max="1">
+						<input type="text" name="credits">
 					</td>
 				</tr>
 
