@@ -2,12 +2,6 @@
 <?php include('connect_to_db.php'); ?>
 <?php include('part-outputform.php'); ?>
 <?php
-
-	/*
-	GOAL:
-	 SELECT * FROM `materiales` WHERE `tipoDeArchivo` LIKE 'video' AND `estado` LIKE 'Sonora'
-	*/
-
 	$the_function = '';
 	$the_search = '';
 	$file_type_query = '';
@@ -17,7 +11,6 @@
 		$file_type_query = ($_POST['file_type']) ? $_POST['file_type']: '';
 		$state_query = ($_POST['state']) ? $_POST['state']: '';
 		$unity_query = ($_POST['unity']) ? $_POST['unity']: '';
-		$gender_query = ($_POST['gender']) ? $_POST['gender']: '';
 		$type_query = ($_POST['type']) ? $_POST['type']: '';
 		$space_query = ($_POST['space']) ? $_POST['space']: '';
 		$population_query = ($_POST['population']) ? $_POST['population']: '';
@@ -28,16 +21,14 @@
 		$sound_query = ($_POST['sound']) ? $_POST['sound']: '';
 		$subject_query = ($_POST['subject']) ? $_POST['subject']: '';
 		$geometry_query = ($_POST['geometry']) ? $_POST['geometry']: '';
-		$numericPresence_query = ($_POST['numericPresence']) ? $_POST['numericPresence']: '';
 		$color_query = ($_POST['color']) ? $_POST['color']: '';
 		$rythm_query = ($_POST['rythm']) ? $_POST['rythm']: '';
 		$intensity_query = ($_POST['intensity']) ? $_POST['intensity']: '';
 		$impact_query = ($_POST['impact']) ? $_POST['impact']: '';
 		$theme_query = ($_POST['theme']) ? $_POST['theme']: '';
-		$actions_query = ($_POST['actions']) ? $_POST['actions']: '';
 
 		//save values to a general array
-		$arr_queries = array('tipoDeArchivo'=>$file_type_query,'estado'=>$state_query,'unidad'=>$unity_query,'género'=>$gender_query,'tipo'=>$type_query,'espacio'=>$space_query,'población'=>$population_query,'ecosistema'=>$ecosystem_query,'luz'=>$light_query,'cámara'=>$camera_query,'movimiento'=>$movement_query,'sonido'=>$sound_query,'sujeto'=>$subject_query,'geometríaDominante'=>$geometry_query,'presenciaNumérica'=>$numericPresence_query,'color'=>$color_query,'ritmo'=>$rythm_query,'nuevaIntensidad'=>$intensity_query,'impacto'=>$impact_query,'temas'=>$theme_query,'acciones'=>$actions_query);
+		$arr_queries = array('tipoDeArchivo'=>$file_type_query,'estado'=>$state_query,'unidad'=>$unity_query,'tipo'=>$type_query,'espacio'=>$space_query,'poblacion'=>$population_query,'ecosistema'=>$ecosystem_query,'luz'=>$light_query,'camara'=>$camera_query,'movimiento'=>$movement_query,'sonido'=>$sound_query,'sujeto'=>$subject_query,'geometriaDominante'=>$geometry_query,'color'=>$color_query,'ritmo'=>$rythm_query,'nuevaIntensidad'=>$intensity_query,'impacto'=>$impact_query,'temas'=>$theme_query);
 		
 		$arr_keys = array();
 		$arr_values = array();
@@ -79,9 +70,12 @@
 						<div>
 							<div class="nmes">
 							<?php
+							$str = '';
 							$s_arr = array();
+							$filenames = array();
 								foreach ($result as $key => $searched):
 									array_push($s_arr, $searched);
+									array_push($filenames, $searched['nombreArchivo']);
 									echo "<p>";
 									echo $searched['nombreArchivo'];
 									echo "</p>";
@@ -89,6 +83,29 @@
 								?>
 							</div>
 						</div>
+					</section>
+					<section class="file_created">
+						<?php 
+							foreach ($filenames as $key => $name):
+								$str .= $name.', ';
+							endforeach;
+							$filename_prefix = 'archivo';
+							$extension = '.txt';
+							$date = date('Ymd_H-i-s');
+							$the_filename = './files/'.$filename_prefix.'-'.$date.$extension;
+							$str = substr($str, 0, -2); 
+
+
+							if($str != ''):
+								if (file_put_contents($the_filename, $str) !== false):
+								    echo 'Archivo creado: ' . basename($the_filename).'<br>';
+								else:
+								    echo 'Error al crear archivo: ' . basename($the_filename);
+								endif;	
+							endif;
+
+
+						?>
 					</section>
 				</section>
 				<section id="sec_res_table"> 
