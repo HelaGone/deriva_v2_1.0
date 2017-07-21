@@ -1,6 +1,9 @@
 <?php include('header.php'); ?>
 <?php include('connect_to_db.php'); ?>
 <?php include('part-outputform.php'); ?>
+<?php 
+
+?>
 <?php
 	$the_function = '';
 	$the_search = '';
@@ -29,7 +32,6 @@
 
 		//save values to a general array
 		$arr_queries = array('tipoDeArchivo'=>$file_type_query,'estado'=>$state_query,'unidad'=>$unity_query,'tipo'=>$type_query,'espacio'=>$space_query,'poblacion'=>$population_query,'ecosistema'=>$ecosystem_query,'luz'=>$light_query,'camara'=>$camera_query,'movimiento'=>$movement_query,'sonido'=>$sound_query,'sujeto'=>$subject_query,'geometriaDominante'=>$geometry_query,'color'=>$color_query,'ritmo'=>$rythm_query,'nuevaIntensidad'=>$intensity_query,'impacto'=>$impact_query,'temas'=>$theme_query);
-		
 		$arr_keys = array();
 		$arr_values = array();
 		$arr = array();
@@ -77,7 +79,7 @@
 									array_push($s_arr, $searched);
 									array_push($filenames, $searched['nombreArchivo']);
 									echo "<p>";
-									echo $searched['nombreArchivo'];
+										echo $searched['nombreArchivo'];
 									echo "</p>";
 								endforeach;
 								?>
@@ -93,7 +95,7 @@
 							$extension = '.txt';
 							$date = date('Ymd_H-i-s');
 							$the_filename = './files/'.$filename_prefix.'-'.$date.$extension;
-							$str = substr($str, 0, -2); 
+							$str = substr($str, 0, -2);
 
 
 							if($str != ''):
@@ -103,8 +105,6 @@
 								    echo 'Error al crear archivo: ' . basename($the_filename);
 								endif;	
 							endif;
-
-
 						?>
 					</section>
 				</section>

@@ -1,16 +1,17 @@
+<?php include('connect_to_db.php'); ?>
 <?php include('header.php'); ?>
 	<section id="input_form" class="main_section">
-		<form id="main_input_form" method="post" action="process-insert.php" enctype="multipart/form-data">
+		<form id="main_input_form" method="post" action="" enctype="multipart/form-data">
 			<table>
 				<tr class="table_row">
 					<td>
 						<label for="filename">Nombre del archivo</label><br>
-						<input type="text" name="filename" >
+						<input type="text" name="filename" id="_fname">
 					</td>
 
 					<td>
 						<label for="filetype">Tipo de Archivo</label><br>
-						<select form="main_input_form" name="filetype" >
+						<select form="main_input_form" name="filetype" id="_ftype">
 							<option value="">Selecciona uno</option>
 							<option value="objeto" >Objeto</option>
 							<option value="video" >Video</option>
@@ -22,29 +23,29 @@
 					
 					<td>
 						<label for="newname">Nuevo Nombre</label><br>
-						<input type="text" name="newname" >
+						<input type="text" name="newname"  id="_newname">
 					</td>
 					
 					<td>
 						<label for="author">Autor</label><br>
-						<input type="text" name="author" ><br>
+						<input type="text" name="author" id="_author"><br>
 					</td>
 
 					<td>
 						<label for="subtitles">Subtítulos</label><br>
-						<input type="text" name="subtitles">
+						<input type="text" name="subtitles" id="_subtitles">
 					</td>
 				</tr>
 
 				<tr class="table_row">
 					<td>
 						<label for="date">Fecha</label><br>
-						<input type="date" name="date" >
+						<input type="date" name="date"  id="_date">
 					</td>
 					
 					<td>
 						<label for="state">Estado</label><br>
-						<select form="main_input_form" name="state" >
+						<select form="main_input_form" name="state"  id="_state">
 							<option value="">Selecciona un estado</option>
 							<option value="baja-california">Baja California</option>
 							<option value="baja-california-sur">Baja California Sur</option>
@@ -82,17 +83,17 @@
 
 					<td>
 						<label for="city">Municipio/Ciudad</label><br>
-						<input type="text" name="city" >
+						<input type="text" name="city"  id="_city">
 					</td>
 					
 					<td>
 						<label for="serieName">Nombre de la serie</label><br>
-						<input type="text" name="serieName" >
+						<input type="text" name="serieName" id="_serieName" value="">
 					</td>
 					
 					<td>
 						<label for="whichQuestion">Cuál pregunta</label><br>
-						<input type="number" name="whichQuestion" min="1" max="30">
+						<input type="number" name="whichQuestion" min="1" max="30" id="_whichQuestion">
 					</td>
 				</tr>
 
@@ -100,7 +101,7 @@
 
 					<td>
 						<label for="unity">Unidad</label><br>
-						<select form="main_input_form" name="unity" >
+						<select form="main_input_form" name="unity"  id="_unity">
 							<option value="">Selecciona una unidad</option>
 							<option value="satelite">Satélite</option>
 							<option value="capsula">Cápsula</option>
@@ -111,7 +112,7 @@
 
 					<td>
 						<label for="type">Tipo</label><br>
-						<select form="main_input_form" name="type" >
+						<select form="main_input_form" name="type"  id="_type">
 							<option value="">Selecciona un tipo</option>
 							<option value="pregunta">Pregunta</option>
 							<option value="testimonio">Testimonio</option>
@@ -128,7 +129,7 @@
 					
 					<td>
 						<label for="space">Espacio</label><br>
-						<select form="main_input_form" name="space" >
+						<select form="main_input_form" name="space"  id="_space">
 							<option value="">Selecciona un espacio</option>
 							<option value="interior">Interior</option>
 							<option value="exterior">Exterior</option>
@@ -137,7 +138,7 @@
 
 					<td>
 						<label for="population">Población</label><br>
-						<select form="main_input_form" name="population" >
+						<select form="main_input_form" name="population"  id="_population">
 							<option value="">Selecciona una población</option>
 							<option value="rural">Rural</option>
 							<option value="urbana">Urbana</option>
@@ -146,7 +147,7 @@
 					
 					<td>
 						<label for="ecosystem">Ecosistema</label><br>
-						<select form="main_input_form" name="ecosystem" >
+						<select form="main_input_form" name="ecosystem"  id="_ecosystem">
 							<option value="">Selecciona un ecosistema</option>
 							<option value="bosque">Bosque</option>
 							<option value="selva">Selva</option>
@@ -165,7 +166,7 @@
 					
 					<td>
 						<label for="light">Luz</label><br>
-						<select form="main_input_form" name="light" >
+						<select form="main_input_form" name="light"  id="_light">
 							<option value="">Selecciona una luz</option>
 							<option value="dia">Día</option>
 							<option value="tarde">Tarde</option>
@@ -176,7 +177,7 @@
 
 					<td>
 						<label for="movement">Movimiento</label><br>
-						<select form="main_input_form" name="movement" >
+						<select form="main_input_form" name="movement"  id="_movement">
 							<option value="">Selecciona un movimiento</option>
 							<option value="arriba">Arriba</option>
 							<option value="abajo">Abajo</option>
@@ -189,7 +190,7 @@
 					
 					<td>
 						<label for="sound">Sonido</label><br>
-						<select form="main_input_form" name="sound" >
+						<select form="main_input_form" name="sound"  id="_sound">
 							<option value="">Selecciona un sonido</option>
 							<option value="ambiente">Ambiente</option>
 							<option value="dialogo">Diálogo</option>
@@ -201,7 +202,7 @@
 					
 					<td>
 						<label for="subject">Sujeto</label><br>
-						<select form="main_input_form" name="subject" >
+						<select form="main_input_form" name="subject"  id="_subject">
 							<option value="">Selecciona un sujeto</option>
 							<option value="animal">Animal</option>
 							<option value="humano">Humano</option>
@@ -214,7 +215,7 @@
 					
 					<td>
 						<label for="geometry">Geometría dominante</label><br>
-						<select form="main_input_form" name="geometry" >
+						<select form="main_input_form" name="geometry"  id="_geometry">
 							<option value="">Selecciona una geometría</option>
 							<option value="rectangulo">Rectángulo</option>
 							<option value="triangulo">Triángulo</option>
@@ -231,7 +232,7 @@
 				<tr class="table_row">
 					<td>
 						<label for="rythm">Ritmo</label><br>
-						<select form="main_input_form" name="rythm" >
+						<select form="main_input_form" name="rythm"  id="_rythm">
 							<option value="">Selecciona un ritmo</option>
 							<option value="rapido">Rápido</option>
 							<option value="medio">Medio</option>
@@ -241,13 +242,13 @@
 					</td>
 					
 					<td>
-						<label for="newIntensity">Nnueva intensidad</label><br>
-						<input type="number" name="newIntensity" ><br>
+						<label for="newIntensity">Nueva intensidad</label><br>
+						<input type="number" name="newIntensity" ><br id="_newIntensity">
 					</td>
 
 					<td>
 						<label for="impact">Impacto</label><br>
-						<select form="main_input_form" name="impact" >
+						<select form="main_input_form" name="impact"  id="_impact">
 							<option value="">Selecciona un impacto</option>
 							<option value="personal">Personal</option>
 							<option value="comunidad">Comunidad</option>
@@ -257,12 +258,12 @@
 					
 					<td>
 						<label for="themes">Temas</label><br>
-						<input type="text" name="themes" >
+						<input type="text" name="themes"  id="_themes">
 					</td>
 
 					<td>
 						<label for="credits">Créditos</label><br>
-						<input type="text" name="credits">
+						<input type="text" name="credits" id="_credits">
 					</td>
 				</tr>
 
@@ -270,21 +271,12 @@
 
 					<td>
 						<label for="place">Lugar</label><br>
-						<input type="text" name="place" ><br>
-					</td>
-
-					<td>
-						<label for="gender">Género</label><br>
-						<select form="main_input_form" name="gender" >
-							<option value="">Selecciona un género</option>
-							<option value="documental">Documental</option>
-							<option value="ficcion">Ficción</option>
-						</select>
+						<input type="text" name="place" ><br id="_place">
 					</td>
 
 					<td>
 						<label for="camera">Cámara</label><br>
-						<select form="main_input_form" name="camera" >
+						<select form="main_input_form" name="camera"  id="_camera">
 							<option value="">Selecciona una cámara</option>
 							<option value="dinamica">Dinámica</option>
 							<option value="estatica">Estática</option>
@@ -293,7 +285,7 @@
 
 					<td>
 						<label for="color">Color</label><br>
-						<select form="main_input_form" name="color" >
+						<select form="main_input_form" name="color"  id="_color">
 							<option value="">Selecciona un color</option>
 							<option value="verde">Vede</option>
 							<option value="rojo">Rojo</option>
@@ -308,12 +300,13 @@
 						</select>
 					</td>
 
-				</tr>
-
-				<tr class="table_row controls">
 					<td>
 						<input type="file" name="_img" id="_img">
 					</td>
+				</tr>
+
+				<tr class="table_row controls">
+					<td></td>
 					<td></td>
 					<td></td>
 					<td>
@@ -327,4 +320,149 @@
 		</form>
 		<button class="to_main back">Regresar</button>
 	</section>
+<?php
+		if( isset($_POST['filename']) && !empty($_POST['filename'])) {
+			
+			$everything_ok = 0;
+			$img_upload_ok = 1;
+			$target_dir = "images/";
+			$target_file = '';
+			$target_file = $target_dir.basename($_FILES["_img"]["name"]);
+			$img_file_type = pathinfo($target_file, PATHINFO_EXTENSION);
+
+			$filename = ($_POST['filename'])? $_POST['filename']: NULL;
+			$filetype = ($_POST['filetype'])? $_POST['filetype']: NULL;
+			$newname = ($_POST['newname'])? $_POST['newname']: NULL;
+			$author = ($_POST['author'])? $_POST['author']: NULL;
+			$subtitles = ($_POST['subtitles'])? $_POST['subtitles']: NULL;
+			$credits = ($_POST['credits'])? $_POST['credits']: NULL;
+			$date = ($_POST['date'])? $_POST['date']: NULL;
+			$state = ($_POST['state'])? $_POST['state']: NULL;
+			$state = str_replace('-', ' ', $state);
+			$city = ($_POST['city'])? $_POST['city']: NULL;
+			$place = ($_POST['place'])? $_POST['place']: NULL;
+			$serieName = ($_POST['serieName'])? $_POST['serieName']: NULL;
+			$whichQuestion = ($_POST['whichQuestion'])? $_POST['whichQuestion']: NULL;
+			$unity = ($_POST['unity'])? $_POST['unity']: NULL;
+			$type = ($_POST['type'])? $_POST['type']: NULL;
+			$space = ($_POST['space'])? $_POST['space']: NULL;
+			$population = ($_POST['population'])? $_POST['population']: NULL;
+			$ecosystem = ($_POST['ecosystem'])? $_POST['ecosystem']: NULL;
+			$light = ($_POST['light'])? $_POST['light']: NULL;
+			$camera = ($_POST['camera'])? $_POST['camera']: NULL;
+			$movement = ($_POST['movement'])? $_POST['movement']: NULL;
+			$sound = ($_POST['sound'])? $_POST['sound']: NULL;
+			$subject = ($_POST['subject'])? $_POST['subject']: NULL;
+			$geometry = ($_POST['geometry'])? $_POST['geometry']: NULL;
+			$color = ($_POST['color'])? $_POST['color']: NULL;
+			$rythm = ($_POST['rythm'])? $_POST['rythm']: NULL;
+			$newIntensity = ($_POST['newIntensity'])? $_POST['newIntensity']: NULL;
+			$impact = ($_POST['impact'])? $_POST['impact']: NULL;
+			$themes = ($_POST['themes'])? $_POST['themes']: NULL;
+			$jaypigee = ($target_file)?$target_file:NULL;
+
+
+			//set local storage
+			$_data = array(
+				'filename' => $filename,
+				'filetype'=>$filetype,
+				'newname'=>$newname,
+				'author'=>$author,
+				'subtitles'=>$subtitles,
+				'credits'=>$credits,
+				'date'=>$date,
+				'state'=>$state,
+				'city'=>$city,
+				'place'=>$place,
+				'serieName'=>$serieName,
+				'whichQuestion'=>$whichQuestion,
+				'unity'=>$unity,
+				'type'=>$type,
+				'space'=>$space,
+				'population'=>$population,
+				'ecosystem'=>$ecosystem,
+				'light'=>$light,
+				'camera'=>$camera,
+				'movement'=>$movement,
+				'sound'=>$sound,
+				'subject'=>$subject,
+				'geometry'=>$geometry,
+				'color'=>$color,
+				'rythm'=>$rythm,
+				'newIntensity'=>$newIntensity,
+				'impact'=>$impact,
+				'themes'=>$themes,
+				'jaypigee'=>$jaypigee
+				);
+			
+			$_data = json_encode($_data);
+			print_r("<input type='hidden' value='".$_data."'name='the_data' id='data_store'>");
+		// }	-	 Testing bracket
+
+			//CHEK IF IS IMAGE
+			$img_obj = $_FILES["_img"]["tmp_name"];
+			$check_img = false;
+			if($img_obj){
+				$check_img = getimagesize($img_obj);
+			}
+			if($check_img !== false){
+				$img_upload_ok = 1;
+			}else{
+				$img_upload_ok = 0;
+			}
+		?>
+			<?php
+				// FILE ALREADY EXISTS
+				if (file_exists($target_file)) {$img_upload_ok = 0;}
+				// FILE SIZE
+				if ($_FILES["_img"]["size"] > 5000000) {$img_upload_ok = 0;}
+				// FORMATS ALLOWED
+				if($img_file_type != "jpg" && $img_file_type != "png" && $img_file_type != "jpeg" && $img_file_type != "gif" ) {$img_upload_ok = 0;}
+				// LAST CHECK || UPLOAD WITH NO IMAGE
+				if ($img_upload_ok == 0) { 
+					// UPLOAD FILE & SQL INSERT
+	 				$insert = "INSERT INTO materiales (nombreArchivo,tipoDeArchivo,nuevoNombre,autor,subtitulos,creditos,fecha,estado,municipioCiudad,lugar,serieNombre,quePregunta,unidad,tipo,espacio,poblacion,ecosistema,luz,camara,movimiento,sonido,sujeto,geometriaDominante,color,ritmo,nuevaIntensidad,impacto,temas,imagen) VALUES ('$filename','$filetype','$newname','$author','$subtitles','$credits','$date','$state','$city','$place','$serieName','$whichQuestion','$unity','$type','$space','$population','$ecosystem','$light','$camera','$movement','$sound','$subject','$geometry','$color','$rythm','$newIntensity','$impact','$themes','$jaypigee')";
+					if(!mysqli_query($dbconn,$insert)){
+						$everything_ok = 0;
+						die(mysqli_error($dbconn));
+						echo "ERROR!";
+					}else{
+						$everything_ok = 1;
+					}
+
+					if($everything_ok == 1){
+						echo '<div class="over_msg"><h2>Los datos se han guardado sin imagen.</h2></div>';
+					}else{
+						echo 'Fail';
+					}
+
+
+				} else {
+					// UPLOAD FILE & SQL INSERT | UPLOAD WITH IMAGE
+	 				$insert = "INSERT INTO materiales (nombreArchivo,tipoDeArchivo,nuevoNombre,autor,subtitulos,creditos,fecha,estado,municipioCiudad,lugar,serieNombre,quePregunta,unidad,tipo,espacio,poblacion,ecosistema,luz,camara,movimiento,sonido,sujeto,geometriaDominante,color,ritmo,nuevaIntensidad,impacto,temas,imagen) VALUES ('$filename','$filetype','$newname','$author','$subtitles','$credits','$date','$state','$city','$place','$serieName','$whichQuestion','$unity','$type','$space','$population','$ecosystem','$light','$camera','$movement','$sound','$subject','$geometry','$color','$rythm','$newIntensity','$impact','$themes','$jaypigee')";
+					if(!mysqli_query($dbconn,$insert)){
+						$everything_ok = 0;
+						die(mysqli_error($dbconn));
+						echo "ERROR!";
+					}else{
+						$everything_ok = 1;
+						if(move_uploaded_file($_FILES["_img"]["tmp_name"], $target_file)){
+							$everything_ok = 1;
+						}else{
+							$everything_ok = 0;
+						}
+					}
+					if($everything_ok == 1){
+						echo '<div class="over_msg"><h2>Los datos se han guardado con éxito</h2></div>';
+					}else{
+						echo 'Fail';
+					}
+				}
+		}else{
+				// echo '<div class="over_msg"><h2>ERROR!! Falta el nombre de archivo o la imagen</h2></div>';
+		}//END IF ISSET && NOT EMPTY
+?>	
+
 <?php include('footer.php'); ?>
+
+
