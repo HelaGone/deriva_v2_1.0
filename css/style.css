@@ -23,7 +23,7 @@ a{color:#666;text-decoration: none;}
 .navigation{padding-top:70px;}
 .navigation ul li{margin:40px 0px;text-align: center;width:100%;height:120px;border:1px solid rgba(0,0,0,0.05);box-shadow: 1px 1px 5px rgba(0,0,0,0.2);border-radius: 5px;}
 .navigation ul li:hover{box-shadow: 1px 1px 7px rgba(0,0,0,0.3);}
-.navigation ul li a{position: relative;top: 50%;transform: translateY(-50%); }
+.navigation ul li p{position: relative;top: 50%;transform: translateY(-50%); }
 
 #input_form{padding-top:90px;}
 #main_input_form table{width:100%;}
@@ -33,7 +33,8 @@ a{color:#666;text-decoration: none;}
 
 #inner_output_section{padding-top:90px;}
 /*#filter_form{padding:20px;margin-bottom:60px;}*/
-#filter_form select, #filter_form input{width:200px;margin-top:10px;}
+#filter_form select, #filter_form input, #filter_form textarea{width:200px;margin-top:10px;}
+.lbl_res em{font-weight: 700;border-bottom: 1px solid red;}
 
 .separdor{width:100%;height:2px;background: #000;margin:20px 0px;}
 

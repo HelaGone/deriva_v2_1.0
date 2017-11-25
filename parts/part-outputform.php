@@ -1,6 +1,11 @@
 <section id="main_output_section" class="main_section">
 	<section id="inner_output_section">
 		<form id="filter_form" action="" method="post">
+
+			<input type="number" name="the_file_id" placeholder="ID" min="0">
+
+			<input type="text" name="the_file_name" placeholder="Nombre del archivo">
+
 			<select form="filter_form" name="file_type" >
 				<option value="">Tipo de archivo</option>
 				<option value="objeto" >Objeto</option>
@@ -11,37 +16,38 @@
 			</select>
 			<select form="filter_form" name="state" >
 				<option value="">Estado</option>
-				<option value="baja-california">Baja California</option>
-				<option value="baja-california-sur">Baja California Sur</option>
-				<option value="sonora">Sonora</option>
-				<option value="sinaloa">Sinaloa</option>
-				<option value="nayarit">Nayarit</option>
-				<option value="jalisco">Jalisco</option>
-				<option value="guerrero">Guerrero</option>
-				<option value="michoacan">Michoacán</option>
-				<option value="oaxaca">Oaxaca</option>
-				<option value="chiapas">Chiapas</option>
-				<option value="quinatana-roo">Quinatana Roo</option>
-				<option value="yucatan">Yucatán</option>
-				<option value="campeche">Campeche</option>
-				<option value="tabasco">Tabasco</option>
-				<option value="veracruz">Veracruz</option>
-				<option value="tamaulipas">Tamaulipas</option>
-				<option value="nuevo-leon">Nuevo León</option>
-				<option value="coahuila">Coahuila</option>
-				<option value="chihuahua">Chihuahua</option>
-				<option value="durango">Durango</option>
-				<option value="san-luis-potosi">San Luis Potosí</option>
-				<option value="zacatecas">Zacatecas</option>
-				<option value="aguas-calientes">Aguas Calientes</option>
-				<option value="guanajuato">Guanajuato</option>
-				<option value="queretaro">Queretaro</option>
-				<option value="colima">Colima</option>
-				<option value="puebla">Puebla</option>
-				<option value="hidalgo">Hidalgo</option>
-				<option value="morelos">Morelos</option>
-				<option value="estado-de-mexico">Estado de México</option>
-				<option value="distrito-federal">Distrito Federal</option>
+					<option value="aguas-calientes">Aguas Calientes</option>
+					<option value="baja-california">Baja California</option>
+					<option value="baja-california-sur">Baja California Sur</option>
+					<option value="campeche">Campeche</option>
+					<option value="chiapas">Chiapas</option>
+					<option value="chihuahua">Chihuahua</option>
+					<option value="coahuila">Coahuila</option>
+					<option value="colima">Colima</option>
+					<option value="distrito-federal">Distrito Federal</option>
+					<option value="durango">Durango</option>
+					<option value="estado-de-mexico">Estado de México</option>
+					<option value="guanajuato">Guanajuato</option>
+					<option value="guerrero">Guerrero</option>
+					<option value="hidalgo">Hidalgo</option>
+					<option value="jalisco">Jalisco</option>
+					<option value="michoacan">Michoacán</option>
+					<option value="morelos">Morelos</option>
+					<option value="nayarit">Nayarit</option>
+					<option value="nuevo-leon">Nuevo León</option>
+					<option value="oaxaca">Oaxaca</option>
+					<option value="puebla">Puebla</option>
+					<option value="queretaro">Queretaro</option>
+					<option value="quinatana-roo">Quinatana Roo</option>
+					<option value="san-luis-potosi">San Luis Potosí</option>
+					<option value="sinaloa">Sinaloa</option>
+					<option value="sonora">Sonora</option>
+					<option value="tabasco">Tabasco</option>
+					<option value="tamaulipas">Tamaulipas</option>
+					<option value="tlaxcala">Tlaxcala</option>
+					<option value="veracruz">Veracruz</option>
+					<option value="yucatan">Yucatán</option>
+					<option value="zacatecas">Zacatecas</option>
 			</select>
 			<select form="filter_form" name="unity">
 				<option value="">Unidad</option>
@@ -133,7 +139,7 @@
 				<option value="fuga">Fuga</option>
 				<option value="simetria">Simetría</option>
 			</select>
-			<select form="filter_form" name="numericPresence" >
+			<!-- <select form="filter_form" name="numericPresence" >
 				<option value="">Número</option>
 				<option value="uno">Uno</option>
 				<option value="dos">Dos</option>
@@ -144,10 +150,10 @@
 				<option value="siete">Siete</option>
 				<option value="ocho">Ocho</option>
 				<option value="nueve">Nueve</option>
-			</select>
+			</select> -->
 			<select form="filter_form" name="color" >
 				<option value="">Color</option>
-				<option value="verde">Vede</option>
+				<option value="verde">Verde</option>
 				<option value="rojo">Rojo</option>
 				<option value="negro">Negro</option>
 				<option value="azul">Azúl</option>
@@ -165,14 +171,14 @@
 				<option value="lento">Lento</option>
 				<option value="estatico">Estático</option>
 			</select>
-			<input type="number" name="intensity" placeholder="Intensidad">
+			<input type="number" name="intensity" placeholder="Intensidad" min="0" step="1" max="5">
 			<select form="filter_form" name="impact" >
 				<option value="">Impacto</option>
 				<option value="personal">Personal</option>
 				<option value="comunidad">Comunidad</option>
 				<option value="general">General</option>
 			</select>
-			<input type="text" name="theme" placeholder="Tema"><br>
+			<textarea type="text" name="theme" placeholder="Tema"></textarea><br>
 			<input type="submit" value="Filtrar" class="go">
 			<input type="reset" value="Reset" class="reset">
 		</form>

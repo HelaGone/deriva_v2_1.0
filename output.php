@@ -1,16 +1,17 @@
-<?php include('header.php'); ?>
-<?php include('connect_to_db.php'); ?>
-<?php include('part-outputform.php'); ?>
 <?php 
+	include('header.php');
+ 	include('connect_to_db.php');
+ 	include('parts/part-outputform.php');
 
-?>
-<?php
 	$the_function = '';
 	$the_search = '';
+	$the_search_key = '';
 	$file_type_query = '';
 
 	if( $_SERVER['REQUEST_METHOD'] == 'POST' ):
 
+		$file_ID = ($_POST['the_file_id']) ? $_POST['the_file_id'] : '';
+		$file_name = ($_POST['the_file_name']) ? $_POST['the_file_name'] : '';
 		$file_type_query = ($_POST['file_type']) ? $_POST['file_type']: '';
 		$state_query = ($_POST['state']) ? $_POST['state']: '';
 		$unity_query = ($_POST['unity']) ? $_POST['unity']: '';
@@ -31,7 +32,10 @@
 		$theme_query = ($_POST['theme']) ? $_POST['theme']: '';
 
 		//save values to a general array
-		$arr_queries = array('tipoDeArchivo'=>$file_type_query,'estado'=>$state_query,'unidad'=>$unity_query,'tipo'=>$type_query,'espacio'=>$space_query,'poblacion'=>$population_query,'ecosistema'=>$ecosystem_query,'luz'=>$light_query,'camara'=>$camera_query,'movimiento'=>$movement_query,'sonido'=>$sound_query,'sujeto'=>$subject_query,'geometriaDominante'=>$geometry_query,'color'=>$color_query,'ritmo'=>$rythm_query,'nuevaIntensidad'=>$intensity_query,'impacto'=>$impact_query,'temas'=>$theme_query);
+		$arr_queries = array(
+			'id'=>$file_ID,
+			'nombreArchivo'=>$file_name,
+			'tipoDeArchivo'=>$file_type_query,'estado'=>$state_query,'unidad'=>$unity_query,'tipo'=>$type_query,'espacio'=>$space_query,'poblacion'=>$population_query,'ecosistema'=>$ecosystem_query,'luz'=>$light_query,'camara'=>$camera_query,'movimiento'=>$movement_query,'sonido'=>$sound_query,'sujeto'=>$subject_query,'geometriaDominante'=>$geometry_query,'color'=>$color_query,'ritmo'=>$rythm_query,'nuevaIntensidad'=>$intensity_query,'impacto'=>$impact_query,'temas'=>$theme_query);
 		$arr_keys = array();
 		$arr_values = array();
 		$arr = array();
@@ -40,6 +44,10 @@
 			if($value == ''):
 				//do nothing
 			else:
+				//términos de búsqueda
+				$the_search = $value;
+				$the_search_key = $key;
+
 				//save to array
 				array_push($arr_values, $value);
 				array_push($arr_keys, $key);
@@ -50,24 +58,40 @@
 		$arr = array_combine($arr_keys, $arr_values);
 		$counting_index = 0;
 		$el_query_part = '';
-		foreach ($arr as $k => $v) {
+		$byid = false;
+		foreach ($arr as $k => $v){
 			$v = str_replace('-', ' ', $v);
-			$el_query_part .= $k." LIKE ". "'%".$v."%'" ." AND ";
+			if($k == 'id'):
+				$byid = true;
+				$el_query_part .= $k.'='.$v;
+			else:
+				$el_query_part .= $k." LIKE ". "'%".$v."%'" ." AND ";
+			endif;
 			$counting_index++;
 		}
+
 		$elquery = "SELECT * FROM materiales WHERE ".$el_query_part;
-		$elquery = substr($elquery, 0, -4);
+
+		if($byid == true):
+			//do nothing
+		else:
+			//echo $elquery.'<br>'; 
+			$elquery = substr($elquery, 0, -5);
+			echo $elquery.'<br>';
+		endif;		
 		// echo $elquery;
-		if( !($result = mysqli_query($dbconn, $elquery)) ){
-			die('Error!');
-		}else{	
+		if( !($result = mysqli_query($dbconn, $elquery) ) ){
+			echo $elquery.'<br>';
+			die('Error en la consulta!');
+		}else{
 			if( mysqli_num_rows( $result ) == 0 ):
 				echo 'No hay resultados para esta consulta';
 			else:
 				$result = mysqli_fetch_all($result, MYSQLI_ASSOC);
 				?>
 				<section class="nme_resultados main_section">
-					<span class="txt lbl_res">Resultados para esta consulta: </span><span class="lbl_num_res"><?php echo count($result); ?></span><br>
+					<span class="txt lbl_res">Resultados para <em><?php echo $the_search.': '; ?></em></span><span class="lbl_num_res"><?php echo count($result); ?></span><br>
+					<?php echo $the_search; ?>
 					<section class="file_names_pool">
 						<div>
 							<div class="nmes">
@@ -76,6 +100,7 @@
 							$s_arr = array();
 							$filenames = array();
 								foreach ($result as $key => $searched):
+									// print_r($key);
 									array_push($s_arr, $searched);
 									array_push($filenames, $searched['nombreArchivo']);
 									echo "<p>";
@@ -91,10 +116,12 @@
 							foreach ($filenames as $key => $name):
 								$str .= $name.', ';
 							endforeach;
-							$filename_prefix = 'archivo';
+							$search = $the_search;
+							$search_key = $the_search_key;
+							$filename_prefix = 'termino';
 							$extension = '.txt';
 							$date = date('Ymd_H-i-s');
-							$the_filename = './files/'.$filename_prefix.'-'.$date.$extension;
+							$the_filename = './files/'.$filename_prefix.'-'.$search_key.'-'.$search.'-'.$date.$extension;
 							$str = substr($str, 0, -2);
 
 
@@ -144,18 +171,28 @@
 							</tr>
 						</thead>
 						<tbody>
+							<form id="update_form" action="" method="post">
 							<?php 
+								$row_count = 0;
+								$checkbox = '<input type="checkbox" name="selected-'.$key.'" >';
+
 								foreach ($s_arr as $key => $value) {
 									echo "<tr>";
 										foreach ($value as $k => $v) {
-											echo "<td>".$v."</td>";
+											// if( $k != 'id' ):
+											// 	echo "<td><input type='text' value='".$v."'></td>";
+											// else:
+												echo "<td>".$v."</td>";
+											// endif;	
 										}
 									echo "</tr>";
 									// echo "<tr><td>".$mks[0]."</td><td>".$mks[1]."</td></tr>";
 								}
 							?>
+							</form>
 						</tbody>
 					</table>
+					<button>Actualizar entradas</button>
 				</section>		
 			<?php	
 			endif;

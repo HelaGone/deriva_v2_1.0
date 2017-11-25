@@ -4,15 +4,27 @@
 	<section class="main_section">
 		<nav class="navigation">
 			<ul>
-				<li>
-					<a href="input.php">Guardar información</a>
-				</li>
-				<li>
-					<a href="output.php">Consultar</a>
-				</li>
-				<li>
-					<a href="logout.php">Salir</a>
-				</li>
+				<a href="input.php">
+					<li>
+						<p>
+							Guardar información
+						</p>
+					</li>
+				</a>
+				<a href="output.php">
+					<li>
+						<p>
+							Consultar
+						</p>
+					</li>
+				</a>
+				<a href="logout.php">
+					<li>
+						<p>
+							Salir
+						</p>
+					</li>
+				</a>
 			</ul>
 		</nav>
 	</section>
