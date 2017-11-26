@@ -139,18 +139,6 @@
 				<option value="fuga">Fuga</option>
 				<option value="simetria">Simetría</option>
 			</select>
-			<!-- <select form="filter_form" name="numericPresence" >
-				<option value="">Número</option>
-				<option value="uno">Uno</option>
-				<option value="dos">Dos</option>
-				<option value="tres">Tres</option>
-				<option value="cuatro">Cuatro</option>
-				<option value="cinco">Cinco</option>
-				<option value="seis">Seis</option>
-				<option value="siete">Siete</option>
-				<option value="ocho">Ocho</option>
-				<option value="nueve">Nueve</option>
-			</select> -->
 			<select form="filter_form" name="color" >
 				<option value="">Color</option>
 				<option value="verde">Verde</option>
@@ -188,4 +176,44 @@
 			<!-- <label for="get_all">Enlistar todas las entradas</label> -->
 		<!-- <button type="submit" value="get_all" name="get_all" id="get_all">Todos los resultados</button><br> -->
 	</section>
+
+	<div id="lightbox_form">
+		<form id="update_form" action="" method="get" >
+			<input type="text" class="upd_in" id="id_in0" value="">
+			<input type="text" class="upd_in" id="id_in1" value="">
+			<input type="text" class="upd_in" id="id_in2" value="">
+			<input type="text" class="upd_in" id="id_in3" value="">
+			<input type="text" class="upd_in" id="id_in4" value="">
+			<input type="text" class="upd_in" id="id_in5" value="">
+			<input type="text" class="upd_in" id="id_in6" value="">
+			<input type="text" class="upd_in" id="id_in7" value="">
+			<input type="text" class="upd_in" id="id_in8" value="">
+			<input type="text" class="upd_in" id="id_in9" value="">
+			<input type="text" class="upd_in" id="id_in10" value="">
+			<input type="text" class="upd_in" id="id_in11" value="">
+			<input type="text" class="upd_in" id="id_in12" value="">
+			<input type="text" class="upd_in" id="id_in13" value="">
+			<input type="text" class="upd_in" id="id_in14" value="">
+			<input type="text" class="upd_in" id="id_in15" value="">
+			<input type="text" class="upd_in" id="id_in16" value="">
+			<input type="text" class="upd_in" id="id_in17" value="">
+			<input type="text" class="upd_in" id="id_in18" value="">
+			<input type="text" class="upd_in" id="id_in19" value="">
+			<input type="text" class="upd_in" id="id_in20" value="">
+			<input type="text" class="upd_in" id="id_in21" value="">
+			<input type="text" class="upd_in" id="id_in22" value="">
+			<input type="text" class="upd_in" id="id_in23" value="">
+			<input type="text" class="upd_in" id="id_in24" value="">
+			<input type="text" class="upd_in" id="id_in25" value="">
+			<input type="text" class="upd_in" id="id_in26" value="">
+			<input type="text" class="upd_in" id="id_in27" value="">
+			<input type="text" class="upd_in" id="id_in28" value="">
+			<input type="text" class="upd_in" id="id_in29" value="">
+			<input type="text" class="upd_in" id="id_in30" value="">
+			<input type="text" class="upd_in" id="id_in31" value="">
+		</form>
+		<button type="submit" form="update_form" value="Actualizar">Actualizar</button>
+	</div>
+
 </section>
+

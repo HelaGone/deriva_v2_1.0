@@ -311,7 +311,7 @@
 
 				<td>
 					<label for="place">Lugar</label><br>
-					<input type="text" name="place" ><br id="_place">
+					<input id="_place" type="text" name="place" ><br>
 				</td>
 
 				<td>

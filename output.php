@@ -75,13 +75,9 @@
 		if($byid == true):
 			//do nothing
 		else:
-			//echo $elquery.'<br>'; 
 			$elquery = substr($elquery, 0, -5);
-			echo $elquery.'<br>';
 		endif;		
-		// echo $elquery;
 		if( !($result = mysqli_query($dbconn, $elquery) ) ){
-			echo $elquery.'<br>';
 			die('Error en la consulta!');
 		}else{
 			if( mysqli_num_rows( $result ) == 0 ):
@@ -91,7 +87,7 @@
 				?>
 				<section class="nme_resultados main_section">
 					<span class="txt lbl_res">Resultados para <em><?php echo $the_search.': '; ?></em></span><span class="lbl_num_res"><?php echo count($result); ?></span><br>
-					<?php echo $the_search; ?>
+					<?php //echo $the_search; ?>
 					<section class="file_names_pool">
 						<div>
 							<div class="nmes">
@@ -100,7 +96,6 @@
 							$s_arr = array();
 							$filenames = array();
 								foreach ($result as $key => $searched):
-									// print_r($key);
 									array_push($s_arr, $searched);
 									array_push($filenames, $searched['nombreArchivo']);
 									echo "<p>";
@@ -135,10 +130,12 @@
 						?>
 					</section>
 				</section>
+				<!-- end name results  -->
 				<section id="sec_res_table"> 
 					<table class="result_table">
 						<thead>
 							<tr>
+								<th>Update</th>
 								<th>ID</th>
 								<th>Nombre</th>
 								<th>Tipo</th>
@@ -168,28 +165,22 @@
 								<th>nIntensidad</th>
 								<th>Impacto</th>
 								<th>Temas</th>
+								<th>Imagen</th>
 							</tr>
 						</thead>
 						<tbody>
-							<form id="update_form" action="" method="post">
 							<?php 
-								$row_count = 0;
+								$row_count = 1;
 								$checkbox = '<input type="checkbox" name="selected-'.$key.'" >';
-
 								foreach ($s_arr as $key => $value) {
-									echo "<tr>";
-										foreach ($value as $k => $v) {
-											// if( $k != 'id' ):
-											// 	echo "<td><input type='text' value='".$v."'></td>";
-											// else:
-												echo "<td>".$v."</td>";
-											// endif;	
-										}
+									echo "<tr id='row_".$row_count."'>";
+									echo "<td><button type='button' class='btn_update' data-row='row_".$row_count."'>update</button></td>";
+										foreach ($value as $k => $v):echo "<td class='".$k."'>".$v."</td>"; endforeach;
 									echo "</tr>";
 									// echo "<tr><td>".$mks[0]."</td><td>".$mks[1]."</td></tr>";
+									$row_count++;
 								}
 							?>
-							</form>
 						</tbody>
 					</table>
 					<button>Actualizar entradas</button>

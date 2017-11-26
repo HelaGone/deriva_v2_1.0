@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	console.log("ready from functionsJs");
+	console.log("aqui");
 
 
 	$('.to_main').on('click', function(){
@@ -12,18 +13,19 @@ $(document).ready(function(){
 	});
 
 	var data = $('#data_store').val();
-	if (typeof(Storage) !== 'undefined') {
+	
+	if(typeof(Storage) !== 'undefined'){
     	localStorage.setItem('data', data);
-	} else {
+	}else{
     	console.log('not supported');
 	}
 
-
-	// console.log('window load');
 	var inStorage = localStorage.getItem('data');
 	var filename = '';
-	if(inStorage){
+
+	if(inStorage != 'undefined'){
 		console.log('hay datos');
+
 		var data_json = JSON.parse(inStorage);
 		console.log(data_json.whichQuestion);
 		$('#_fname').val(data_json.filename);
@@ -58,6 +60,34 @@ $(document).ready(function(){
 	}else{
 		console.log('no hay datos');
 	}
+
+	/**
+	 * UPDATE LIGHTBOX
+	*/
+	var values_arr = [];
+	var elem_count = 0;
+	$('.btn_update').on('click',function(){
+		var row_id = "#"+$(this).attr('data-row');
+
+		$('#lightbox_form').show('slow');
+
+		$.each( $(row_id).find('td') , function(){
+
+			if( $(this).text() != 'update') {
+				values_arr.push( $(this).text() )
+			}
+
+		});
+
+		$.each(values_arr, function(k, v){
+			$('#id_in'+elem_count).val(v);
+			//console.log(v);
+			elem_count++;
+		});
+
+		//console.log( values_arr );
+
+	});
 
 
 });//end READY
