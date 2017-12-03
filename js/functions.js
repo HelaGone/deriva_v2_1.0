@@ -1,14 +1,12 @@
 $(document).ready(function(){
 	console.log("ready from functionsJs");
-	console.log("aqui");
-
 
 	$('.to_main').on('click', function(){
-		console.log('click');
+		// console.log('click');
 		window.location.href = 'admin-area.php';
 	});
 	$('.to_insert').on('click', function(){
-		console.log('click');
+		// console.log('click');
 		window.location.href = 'input.php';
 	});
 
@@ -88,6 +86,68 @@ $(document).ready(function(){
 		//console.log( values_arr );
 
 	});
+
+
+	// $( "#update_form" ).change(function() {
+	  
+	    $('#update_form').on('submit', function (e) {
+	    	console.log("submited");
+	  		e.preventDefault();
+
+	      	// $.ajax({
+	       //  	type: 'post',
+	       //  	url: 'update_row.php',
+	       //  	data: $('#update_form').serialize(),
+	       //  		done: function () {
+	       //    			alert('form was submitted');
+	       //    			console.log("jshj");
+	       //    			$('#lightbox_form').hide('slow');
+	       //  		},
+	       //  		fail: function(){
+	       //  			alert("form not submited");
+	       //  		}
+	      	// });
+
+	    console.log( $('#update_form').serialize() );
+
+			var request = $.ajax({
+				url: "update_row.php",
+				method: "POST",
+				data: $('#update_form').serialize()
+			});
+			 
+			request.done(function( msg ) {
+				alert("done: "+ msg );
+				$('#lightbox_form').hide('slow');
+			});
+			 
+			request.fail(function( jqXHR, textStatus ) {
+				alert( "Request failed: " + textStatus );
+			});
+		});
+
+		$('#btn_close').click( function(){
+			console.log("click");
+			$('#main_output_section').find('#lightbox_form').hide('slow');
+
+		});
+
+	//});//End change function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 });//end READY

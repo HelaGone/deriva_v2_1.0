@@ -183,7 +183,6 @@
 							?>
 						</tbody>
 					</table>
-					<button>Actualizar entradas</button>
 				</section>		
 			<?php	
 			endif;

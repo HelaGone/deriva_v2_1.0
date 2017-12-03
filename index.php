@@ -3,6 +3,7 @@
 	error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO TERMINE DE HACE DEBUG
 	require('connect_to_db.php');
 	session_start();
+	$err = '';
 
 	if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$usuario = $_POST['usr'];
@@ -41,6 +42,6 @@
 		<input type="submit" value="Entrar" >
 	</form>
 	<div>
-		<?php //echo "<div class='error'>".$err."</div>";?>
+		<?php echo "<div class='error'>".$err."</div>";?>
 	</div>
 </section>
