@@ -54,6 +54,6 @@ a{color:#666;text-decoration: none;}
 /*
  * UPDATE LIGHTBOX
 */
-#lightbox_form{border: 1px solid red; position:fixed; top:50%; left: 50%; margin-top:-76px; margin-left: -319px; width:50%; display: none;background-color: rgba(0,0,0,0.5);padding:30px;}
-#lightbox_form form{border: 1px solid blue;	background-color:#ececec;text-align: justify;}
+#lightbox_form{position:fixed; top:50%; left: 50%; margin-top:-76px; margin-left: -25%; width:50%; display: none;background-color: rgba(0,0,0,0.5);padding:30px;}
+#lightbox_form form{background-color:#ececec;text-align: justify;}
 #lightbox_form form input{width: calc(25% - 10px);background-color: transparent;outline: none;}

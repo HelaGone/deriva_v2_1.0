@@ -37,6 +37,7 @@
 	// $update = "UPDATE materiales SET (	nombreArchivo = '$upd_filename', tipoDeArchivo = '$upd_filetype',nuevoNombre = '$upd_newname', autor = '$upd_author',subtitulos = '$upd_subtitles',creditos = '$upd_credits',fecha = '$upd_date',estado = '$upd_state',municipioCiudad = '$upd_city',lugar = '$upd_place',serieNombre = '$upd_seriename',quePregunta = '$upd_question',unidad = '$upd_unity',tipo = '$upd_type',espacio = '$upd_space',poblacion = '$upd_population',ecosistema = '$upd_ecosystem',luz = '$upd_light',camara = '$upd_camera',movimiento = '$upd_movement',sonido = '$upd_sound',sujeto = '$upd_subject',geometriaDominante = '$upd_geometry',color = '$upd_color',ritmo = '$upd_rythm',nuevaIntensidad = '$upd_intensity',impacto = '$upd_impact',temas = '$upd_themes',imagen = '$upd_image') WHERE id = $upd_id";
 	$update = "UPDATE materiales 
 				SET
+					nombreArchivo = '$upd_filename',
 					nuevoNombre = '$upd_newname',
 					autor = '$upd_author',
 					subtitulos = '$upd_subtitles',

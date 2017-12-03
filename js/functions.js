@@ -66,73 +66,47 @@ $(document).ready(function(){
 	var elem_count = 0;
 	$('.btn_update').on('click',function(){
 		var row_id = "#"+$(this).attr('data-row');
-
 		$('#lightbox_form').show('slow');
-
 		$.each( $(row_id).find('td') , function(){
-
 			if( $(this).text() != 'update') {
 				values_arr.push( $(this).text() )
 			}
-
 		});
 
 		$.each(values_arr, function(k, v){
 			$('#id_in'+elem_count).val(v);
+			$('#id_in'+elem_count).attr('placeholder',v).blur();
 			//console.log(v);
 			elem_count++;
 		});
-
-		//console.log( values_arr );
-
 	});
 
-
-	// $( "#update_form" ).change(function() {
 	  
-	    $('#update_form').on('submit', function (e) {
-	    	console.log("submited");
-	  		e.preventDefault();
+	$("#id_in0").prop("disabled", true);
+	  
+    $('#update_form').on('submit', function (e) {
+    	console.log("submited");
+  		e.preventDefault();
 
-	      	// $.ajax({
-	       //  	type: 'post',
-	       //  	url: 'update_row.php',
-	       //  	data: $('#update_form').serialize(),
-	       //  		done: function () {
-	       //    			alert('form was submitted');
-	       //    			console.log("jshj");
-	       //    			$('#lightbox_form').hide('slow');
-	       //  		},
-	       //  		fail: function(){
-	       //  			alert("form not submited");
-	       //  		}
-	      	// });
-
-	    console.log( $('#update_form').serialize() );
-
-			var request = $.ajax({
-				url: "update_row.php",
-				method: "POST",
-				data: $('#update_form').serialize()
-			});
-			 
-			request.done(function( msg ) {
-				alert("done: "+ msg );
-				$('#lightbox_form').hide('slow');
-			});
-			 
-			request.fail(function( jqXHR, textStatus ) {
-				alert( "Request failed: " + textStatus );
-			});
+		var request = $.ajax({
+			url: "update_row.php",
+			method: "POST",
+			data: $('#update_form').serialize()
 		});
-
-		$('#btn_close').click( function(){
-			console.log("click");
-			$('#main_output_section').find('#lightbox_form').hide('slow');
-
+		 
+		request.done(function( msg ) {
+			// alert("done: "+ msg );
+			$('#lightbox_form').hide('slow');
 		});
+		 
+		request.fail(function( jqXHR, textStatus ) {
+			alert( "Failed to update: " + textStatus );
+		});
+	});
 
-	//});//End change function
+	$('#btn_close').click( function(){
+		$('#main_output_section').find('#lightbox_form').hide('slow');
+	});
 
 
 
