@@ -15,7 +15,7 @@ a{color:#666;text-decoration: none;}
 .file_names_pool{border:1px solid rgba(0,0,0,0.05);}
 .file_names_pool div.nmes{height: 200px;width: 100%;overflow: auto;}
 .result_table{font-size: 80%;margin-top: 20px;}
-.result_table td{border:1px solid rgba(127,0,0,0.05);white-space: nowrap;width:1px;padding:5px;}
+.result_table td{border:2px solid rgba(255,0,0,0.1);white-space: nowrap;width:1px;padding:5px;}
 .result_table th{min-width:calc(2.7% - 2px);border:1px solid rgba(0,0,255,0.05);white-space: nowrap;padding:5px;font-weight: bold;background: rgba(0,255,255,0.1);}
 #sec_res_table{overflow: scroll;height:700px;min-width:1200px;max-width: 1920px;}
 

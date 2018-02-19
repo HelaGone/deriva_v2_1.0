@@ -199,10 +199,10 @@
 
 				<td>
 					<label for="movement">Movimiento</label><br>
-					<input type="text" name="movement"  id="_movement">
-					<!--
+					<!-- <input type="text" name="movement"  id="_movement"> -->
+
 					<select form="main_input_form" name="movement"  id="_movement">
-						<option value="">Selecciona un movimiento</option>
+						<option value="">Selecciona uno</option>
 						<option value="arriba">Arriba</option>
 						<option value="abajo">Abajo</option>
 						<option value="izquierda">Izquierda</option>
@@ -210,7 +210,7 @@
 						<option value="adelante">Adelante</option>
 						<option value="atras">Atras</option>
 					</select>
-					-->
+					
 				</td>
 				
 				<td>

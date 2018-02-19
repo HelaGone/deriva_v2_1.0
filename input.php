@@ -6,7 +6,7 @@
 	if( isset($_POST['filename']) && !empty($_POST['filename'])) {
 		
 		$everything_ok = false;
-		$img_upload_ok = true;
+		$img_upload_ok = false;
 		$target_dir = "images/";
 		$target_file = '';
 		$target_file = $target_dir.basename($_FILES["_img"]["name"]);
@@ -43,6 +43,7 @@
 		$themes = ($_POST['themes'])? $_POST['themes']: NULL;
 		$jaypigee = ($target_file)?$target_file:NULL;
 
+		//echo $movement;
 
 		//set local storage
 		$_data = array(
@@ -102,9 +103,9 @@
 				if($img_file_type != "jpg" && $img_file_type != "png" && $img_file_type != "jpeg" && $img_file_type != "gif" ) {$img_upload_ok = false;}
 
 				/** 
-				 * LAST CHECK || UPLOAD WITH NO IMAGE
+				 * LAST CHECK : UPLOAD WITH NO IMAGE
 				 */
-				if (!$img_upload_ok) { 
+				if (!$img_upload_ok) {
 					// UPLOAD FILE & SQL INSERT
 	 				$insert = "INSERT INTO materiales (nombreArchivo,tipoDeArchivo,nuevoNombre,autor,subtitulos,creditos,fecha,estado,municipioCiudad,lugar,serieNombre,quePregunta,unidad,tipo,espacio,poblacion,ecosistema,luz,camara,movimiento,sonido,sujeto,geometriaDominante,color,ritmo,nuevaIntensidad,impacto,temas,imagen) VALUES ('$filename','$filetype','$newname','$author','$subtitles','$credits','$date','$state','$city','$place','$serieName','$whichQuestion','$unity','$type','$space','$population','$ecosystem','$light','$camera','$movement','$sound','$subject','$geometry','$color','$rythm','$newIntensity','$impact','$themes','$jaypigee')";
 					if(!mysqli_query($dbconn,$insert)){
@@ -115,7 +116,8 @@
 						$everything_ok = true;
 					}
 
-					if($everything_ok){
+					if($everything_ok && !$img_upload_ok){
+						$everything_ok = false;
 						echo '<div class="over_msg"><h2>Los datos se han guardado sin imagen.</h2></div>';
 					}else{
 						echo 'Fail';
@@ -123,7 +125,7 @@
 				} else {
 					
 					/** 
-					 * UPLOAD FILE & SQL INSERT | UPLOAD WITH IMAGE
+					 * LAST CHECK : UPLOAD FILE & SQL INSERT && UPLOAD WITH IMAGE
 					 */
 	 				$insert = "INSERT INTO materiales (nombreArchivo,tipoDeArchivo,nuevoNombre,autor,subtitulos,creditos,fecha,estado,municipioCiudad,lugar,serieNombre,quePregunta,unidad,tipo,espacio,poblacion,ecosistema,luz,camara,movimiento,sonido,sujeto,geometriaDominante,color,ritmo,nuevaIntensidad,impacto,temas,imagen) VALUES ('$filename','$filetype','$newname','$author','$subtitles','$credits','$date','$state','$city','$place','$serieName','$whichQuestion','$unity','$type','$space','$population','$ecosystem','$light','$camera','$movement','$sound','$subject','$geometry','$color','$rythm','$newIntensity','$impact','$themes','$jaypigee')";
 					if(!mysqli_query($dbconn,$insert)){
@@ -138,14 +140,13 @@
 							$everything_ok = false;
 						}
 					}
-					if($everything_ok){
+					if($everything_ok && $img_upload_ok){
+						$everything_ok = false;
 						echo '<div class="over_msg"><h2>Los datos se han guardado con éxito</h2></div>';
 					}else{
 						echo 'Fail';
 					}
 				}
-		}else{
-				// echo '<div class="over_msg"><h2>ERROR!! Falta el nombre de archivo o la imagen</h2></div>';
 		}//END IF ISSET && NOT EMPTY
 ?>	
 

@@ -1,31 +1,27 @@
 $(document).ready(function(){
 	console.log("ready from functionsJs");
 
-	$('.to_main').on('click', function(){
-		// console.log('click');
-		window.location.href = 'admin-area.php';
-	});
-	$('.to_insert').on('click', function(){
-		// console.log('click');
-		window.location.href = 'input.php';
-	});
+	$('.to_main').on('click', function(){window.location.href = 'admin-area.php';});
+	$('.to_insert').on('click', function(){window.location.href = 'input.php';});
 
-	var data = $('#data_store').val();
-	
+
+	//STORE DATA IN LOCALSTORAGE
+	var data = $('#data_store').val();	
 	if(typeof(Storage) !== 'undefined'){
     	localStorage.setItem('data', data);
 	}else{
     	console.log('not supported');
+    	alert('Por favor actualiza tu browser');
 	}
 
 	var inStorage = localStorage.getItem('data');
 	var filename = '';
 
-	if(inStorage != 'undefined'){
-		console.log('hay datos');
-
+	if(inStorage != 'undefined' && (inStorage != null || inStorage != '') ){
+		console.log('ya hay datos');
 		var data_json = JSON.parse(inStorage);
-		console.log(data_json.whichQuestion);
+		console.log(data_json);
+		//console.log(data_json.whichQuestion);
 		$('#_fname').val(data_json.filename);
 		$('#_ftype').val(data_json.filetype);
 		$('#_newname').val(data_json.newname);
@@ -36,6 +32,7 @@ $(document).ready(function(){
 		$('#_state').val(data_json.state);
 		$('#_city').val(data_json.city);
 		$('#_place').val(data_json.place);
+		//console.log($('#_place').val(data_json.place));
 		$('#_serieName').val(data_json.serieName);
 		$('#_whichQuestion').val(data_json.whichQuestion);
 		$('#_unity').val(data_json.unity);
@@ -56,29 +53,36 @@ $(document).ready(function(){
 		$('#_themes').val(data_json.themes);
 		$('#_jaypige').val(data_json.jaypigee);
 	}else{
-		console.log('no hay datos');
+		console.log('aun no hay datos');
 	}
 
 	/**
 	 * UPDATE LIGHTBOX
 	*/
-	var values_arr = [];
+	
 	var elem_count = 0;
 	$('.btn_update').on('click',function(){
+		var values_arr = [];
 		var row_id = "#"+$(this).attr('data-row');
+		console.log(row_id);
+
 		$('#lightbox_form').show('slow');
+
 		$.each( $(row_id).find('td') , function(){
 			if( $(this).text() != 'update') {
 				values_arr.push( $(this).text() )
 			}
 		});
 
+		console.log(values_arr);
+
 		$.each(values_arr, function(k, v){
 			$('#id_in'+elem_count).val(v);
 			$('#id_in'+elem_count).attr('placeholder',v).blur();
-			//console.log(v);
+			console.log(k+' : '+v);
 			elem_count++;
 		});
+
 	});
 
 	  

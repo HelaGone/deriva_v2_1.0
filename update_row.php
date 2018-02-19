@@ -2,6 +2,7 @@
 	require('connect_to_db.php');
 
 	if( isset($_POST['upd_filename']) && !empty($_POST['upd_filename']) ):
+
 		$upd_id = (isset($_POST['upd_id'])) ? $_POST['upd_id'] : 'null';
 		$upd_filename = (isset($_POST['upd_filename'])) ? $_POST['upd_filename'] : 'null';
 		$upd_filetype = (isset($_POST['upd_filetype'])) ? $_POST['upd_filetype'] : 'null';
@@ -71,9 +72,11 @@
 		echo "ERROR!";
 	}else{
 		$everything_ok = true;
+		echo 'aqui está';
+		alert('ok');
 	}
-
-
+	else:
+		echo '<div>NO hay upd_filename</div>';
 	endif;
 
 ?>

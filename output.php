@@ -122,9 +122,9 @@
 
 							if($str != ''):
 								if (file_put_contents($the_filename, $str) !== false):
-								    echo 'Archivo creado: ' . basename($the_filename).'<br>';
+								    print 'Archivo creado: <a href="files/'.basename($the_filename).'" target="_blank">' . basename($the_filename).'</a><br>';
 								else:
-								    echo 'Error al crear archivo: ' . basename($the_filename);
+								    print 'Error al crear archivo: ' . basename($the_filename);
 								endif;	
 							endif;
 						?>
@@ -175,7 +175,13 @@
 								foreach ($s_arr as $key => $value) {
 									echo "<tr id='row_".$row_count."'>";
 									echo "<td><button type='button' class='btn_update' data-row='row_".$row_count."'>update</button></td>";
-										foreach ($value as $k => $v):echo "<td class='".$k."'>".$v."</td>"; endforeach;
+										foreach ($value as $k => $v):
+											if($k == 'imagen'):
+												echo "<td class='".$k."'><a href='".$v."' target='_blank'><img src='".$v."' width='90px' height='auto' ></td>";	
+											else:
+												echo "<td class='".$k."'>".$v."</td>";
+											endif;
+										endforeach;
 									echo "</tr>";
 									// echo "<tr><td>".$mks[0]."</td><td>".$mks[1]."</td></tr>";
 									$row_count++;
