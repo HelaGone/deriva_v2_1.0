@@ -80,9 +80,9 @@
 		
 		$_data = json_encode($_data);
 
-		echo "<pre>";
-			print_r($_data);
-		echo "</pre>";
+		// echo "<pre>";
+		// 	print_r($_data);
+		// echo "</pre>";
 		print_r("<input type='hidden' value='".$_data."'name='the_data' id='data_store'>");
 	//}//	-	 Testing bracket
 

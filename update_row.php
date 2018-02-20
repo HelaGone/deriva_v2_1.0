@@ -74,7 +74,7 @@
 		php_alert('ERROR');
 	}else{
 		$everything_ok = true;
-		print($upd_id.' '.$upd_image);
+		print('Se actualizo la entrada: '.$upd_id);
 	}
 	else:
 		php_alert('NO hay upd_filename');

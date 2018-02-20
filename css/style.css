@@ -39,6 +39,8 @@ a{color:#666;text-decoration: none;}
 .separdor{width:100%;height:2px;background: #000;margin:20px 0px;}
 
 .file_created{margin:20px 0px;}
+.the_txt_file{color:red;}
+.the_txt_file:hover{color:gray;}
 
 /*
  * BOTONES 
