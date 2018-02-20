@@ -9,6 +9,9 @@
 body{font-family: helvetica; color:#666; }
 a{color:#666;text-decoration: none;}
 
+/*LOGIN*/
+#form_page div iframe{left:0!important;}
+
 
 .lbl_num_res{font-size: 140%;font-weight: bold;}
 .nme_resultados{margin-top:20px;}

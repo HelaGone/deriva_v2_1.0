@@ -20,7 +20,7 @@
 				$_SESSION['login_user'] = $usuario;
 				header("location: admin-area.php");
 			}else{
-				$err = "Nah ah ah ahh!!!";
+				$err = "Nah ah ah! You didn't say the magic word";
 			}
 		}
 	}
@@ -42,6 +42,6 @@
 		<input type="submit" value="Entrar" >
 	</form>
 	<div>
-		<?php echo "<div class='error'>".$err."</div>";?>
+		<?php echo $err; ?>
 	</div>
 </section>
