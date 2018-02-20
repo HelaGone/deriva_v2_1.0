@@ -1,8 +1,8 @@
 <?php 
 	require('connect_to_db.php');
+	require('functions.php');
 
 	if( isset($_POST['upd_filename']) && !empty($_POST['upd_filename']) ):
-
 		$upd_id = (isset($_POST['upd_id'])) ? $_POST['upd_id'] : 'null';
 		$upd_filename = (isset($_POST['upd_filename'])) ? $_POST['upd_filename'] : 'null';
 		$upd_filetype = (isset($_POST['upd_filetype'])) ? $_POST['upd_filetype'] : 'null';
@@ -65,18 +65,19 @@
 					nuevaIntensidad = '$upd_intensity',
 					impacto = '$upd_impact',
 					temas = '$upd_themes', 
-					imagen = '$upd_image' WHERE id = $upd_id";		
+					imagen = '$upd_image' WHERE id = $upd_id";
+
+
 	if(!mysqli_query($dbconn,$update)){
 		$everything_ok = false;
 		die(mysqli_error($dbconn));
-		echo "ERROR!";
+		php_alert('ERROR');
 	}else{
 		$everything_ok = true;
-		echo 'aqui está';
-		alert('ok');
+		print($upd_id.' '.$upd_image);
 	}
 	else:
-		echo '<div>NO hay upd_filename</div>';
+		php_alert('NO hay upd_filename');
 	endif;
 
 ?>

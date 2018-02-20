@@ -177,42 +177,7 @@
 		<!-- <button type="submit" value="get_all" name="get_all" id="get_all">Todos los resultados</button><br> -->
 	</section>
 
-	<div id="lightbox_form">
-		<form id="update_form" action="" method="post" >
-			<input type="text" class="upd_in" id="id_in0" value="" name="upd_id" placeholder="">
-			<input type="text" class="upd_in" id="id_in1" value="" name="upd_filename" placeholder="">
-			<input type="text" class="upd_in" id="id_in2" value="" name="upd_filetype" placeholder="">
-			<input type="text" class="upd_in" id="id_in3" value="" name="upd_newname" placeholder="">
-			<input type="text" class="upd_in" id="id_in4" value="" name="upd_author" placeholder="">
-			<input type="text" class="upd_in" id="id_in5" value="" name="upd_subtitles" placeholder="">
-			<input type="text" class="upd_in" id="id_in6" value="" name="upd_credits" placeholder="">
-			<input type="text" class="upd_in" id="id_in7" value="" name="upd_date" placeholder="">
-			<input type="text" class="upd_in" id="id_in8" value="" name="upd_state" placeholder="">
-			<input type="text" class="upd_in" id="id_in9" value="" name="upd_city" placeholder="">
-			<input type="text" class="upd_in" id="id_in10" value="" name="upd_place" placeholder="">
-			<input type="text" class="upd_in" id="id_in11" value="" name="upd_seriename" placeholder="">
-			<input type="text" class="upd_in" id="id_in12" value="" name="upd_question" placeholder="">
-			<input type="text" class="upd_in" id="id_in13" value="" name="upd_unity" placeholder="">
-			<input type="text" class="upd_in" id="id_in14" value="" name="upd_type" placeholder="">
-			<input type="text" class="upd_in" id="id_in15" value="" name="upd_space" placeholder="">
-			<input type="text" class="upd_in" id="id_in16" value="" name="upd_population" placeholder="">
-			<input type="text" class="upd_in" id="id_in17" value="" name="upd_ecosystem" placeholder="">
-			<input type="text" class="upd_in" id="id_in18" value="" name="upd_light" placeholder="">
-			<input type="text" class="upd_in" id="id_in19" value="" name="upd_camera" placeholder="">
-			<input type="text" class="upd_in" id="id_in20" value="" name="upd_movement" placeholder="">
-			<input type="text" class="upd_in" id="id_in21" value="" name="upd_sound" placeholder="">
-			<input type="text" class="upd_in" id="id_in22" value="" name="upd_subject" placeholder="">
-			<input type="text" class="upd_in" id="id_in23" value="" name="upd_geometry" placeholder="">
-			<input type="text" class="upd_in" id="id_in24" value="" name="upd_color" placeholder="">
-			<input type="text" class="upd_in" id="id_in25" value="" name="upd_rythm" placeholder="">
-			<input type="text" class="upd_in" id="id_in26" value="" name="upd_intensity" placeholder="">
-			<input type="text" class="upd_in" id="id_in27" value="" name="upd_impact" placeholder="">
-			<input type="text" class="upd_in" id="id_in28" value="" name="upd_themes" placeholder="">
-			<input type="text" class="upd_in" id="id_in29" value="" name="upd_image" placeholder="">
-		</form>
-		<button type="submit" form="update_form" value="Actualizar">Actualizar</button>
-		<button type="button" value="cerrar" id="btn_close" class>Cerrar</button>
-	</div>
+	<?php include('part-lightbox-form.php'); ?>
 
 </section>
 

@@ -121,11 +121,11 @@
 
 
 							if($str != ''):
-								if (file_put_contents($the_filename, $str) !== false):
-								    print 'Archivo creado: <a href="files/'.basename($the_filename).'" target="_blank">' . basename($the_filename).'</a><br>';
-								else:
-								    print 'Error al crear archivo: ' . basename($the_filename);
-								endif;	
+								// if (file_put_contents($the_filename, $str) !== false):
+								//     print 'Archivo creado: <a href="files/'.basename($the_filename).'" target="_blank">' . basename($the_filename).'</a><br>';
+								// else:
+								//     print 'Error al crear archivo: ' . basename($the_filename);
+								// endif;
 							endif;
 						?>
 					</section>

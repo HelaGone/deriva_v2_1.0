@@ -285,6 +285,16 @@
 		}
 	}
 
+	function body_class(){
+		$full = $_SERVER['REQUEST_URI'];
+		$bodyclass = preg_match('/([a-z]{1,})([a-z.]{4})?$/', $full, $matches);
+		return $matches[1];
+	}
+
+	function php_alert($msg){
+		echo $msg;
+	}
+
 
 
 
