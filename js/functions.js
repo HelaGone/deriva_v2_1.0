@@ -74,7 +74,7 @@ $(document).ready(function(){
 	var elem_count = 0;
 	$('.btn_update').on('click',function(){
 		var values_arr = [];
-		console.log(values_arr+' <<<<< vacío ');
+		// console.log(values_arr+' <<<<< vacío ');
 		var row_id = "#"+$(this).attr('data-row');
 		console.log(row_id);
 
@@ -132,11 +132,8 @@ $(document).ready(function(){
 			
 			$('#lightbox_form').hide('fast');
 			$("#id_in0").prop("disabled", true);
-			location.reload();
-
+			// location.reload();
 			alert("done: "+ msg );
-
-
 		});
 		 
 		request.fail(function( jqXHR, textStatus ) {
@@ -147,7 +144,7 @@ $(document).ready(function(){
 
 	$('#btn_close').click( function(){
 		$('#main_output_section').find('#lightbox_form').hide('slow');
-		location.reload();		
+		// location.reload();
 	});
 
 

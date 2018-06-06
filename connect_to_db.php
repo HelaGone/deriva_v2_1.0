@@ -12,9 +12,9 @@ error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO T
 // DEFINE('DB_NAME', 'materiales_deriva_interfaz_web'); //live db
 
 DEFINE('DB_USER', 'root');
-DEFINE('DB_PSWD', 'root');
+DEFINE('DB_PSWD', 'helagone13');
 DEFINE('DB_HOST', 'localhost');
-DEFINE('DB_NAME', 'new_derivav3_db');
+DEFINE('DB_NAME', 'deriva_dev_db');
 
 // DEFINE('DB_USER', 'usrderiva2017');
 // DEFINE('DB_PSWD', 'pwd.deriva.2017');
