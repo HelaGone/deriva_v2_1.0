@@ -69,14 +69,12 @@
 			endif;
 			$counting_index++;
 		}
-
 		$elquery = "SELECT * FROM materiales WHERE ".$el_query_part;
-
 		if($byid == true):
 			//do nothing
 		else:
 			$elquery = substr($elquery, 0, -5);
-		endif;		
+		endif;
 		if( !($result = mysqli_query($dbconn, $elquery) ) ){
 			die('Error en la consulta!');
 		}else{

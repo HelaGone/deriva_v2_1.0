@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="js/functions.js"></script>
 </head>
 <body class="<?php echo body_class(); ?>">
-	<header id="" class="">
+	<header id="main_header" class="back_btn">
 		<?php 
 			if($_SERVER['REQUEST_URI'] !== '/~cube/deriva/admin-area.php'): ?>
 				<svg class="to_main back" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">

@@ -12,6 +12,8 @@ a{color:#666;text-decoration: none;}
 /*LOGIN*/
 #form_page div iframe{left:0!important;}
 
+#main_header{width:100%;position:fixed;border:1px solid rgba(0,0,0,0.05);background-color:#fff;}
+
 
 .lbl_num_res{font-size: 140%;font-weight: bold;}
 .nme_resultados{margin-top:20px;}
@@ -52,7 +54,7 @@ a{color:#666;text-decoration: none;}
 
 .go{background:#22dd00;border:none;height: 40px;outline:none;border-radius: 3px;box-shadow: 1px 1px 3px rgba(0,0,0,0.2);color:#424242;font-weight: bold;font-size: 90%;margin-top:10px;}
 .reset{background:#dd2200;border:none;height: 40px;outline:none;border-radius: 3px;box-shadow: 1px 1px 3px rgba(0,0,0,0.2);color:#424242;font-weight: bold;font-size: 90%;margin-top:10px;}
-.back{outline:none;color:#424242;position:fixed;top:16px;left:16px;}
+.back{outline:none;color:#424242;top:16px;left:16px;}
 
 #success_screen{width: 50%;margin: 15% auto;text-align: center;}
 
