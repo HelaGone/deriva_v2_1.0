@@ -170,9 +170,6 @@
 			<input type="submit" value="Filtrar" class="go">
 			<input type="reset" value="Reset" class="reset">
 		</form>
-			<button class="to_main back">Regresar</button>
-
-			
 			<!-- <label for="get_all">Enlistar todas las entradas</label> -->
 		<!-- <button type="submit" value="get_all" name="get_all" id="get_all">Todos los resultados</button><br> -->
 	</section>

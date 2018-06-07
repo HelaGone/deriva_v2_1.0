@@ -115,17 +115,21 @@
 							$search_key = $the_search_key;
 							$filename_prefix = 'termino';
 							$extension = '.txt';
-							$date = date('Ymd_H-i-s');
+							$date = date('Ymd');
 							$the_filename = './files/'.$filename_prefix.'-'.$search_key.'-'.$search.'-'.$date.$extension;
 							$str = substr($str, 0, -2);
 
 
 							if($str != ''):
-								if (file_put_contents($the_filename, $str) !== false):
-								    print 'Archivo creado: <a href="files/'.basename($the_filename).'" target="_blank" class="the_txt_file">' . basename($the_filename).'</a><br>';
+								if(file_exists($the_filename)):
+									print('El archivo ya existe');
 								else:
-								    print 'Error al crear archivo: ' . basename($the_filename);
-								endif;
+									if (file_put_contents($the_filename, $str)):
+									    print 'Archivo creado: <a href="files/'.basename($the_filename).'" target="_blank" class="the_txt_file">' . basename($the_filename).'</a><br>';
+									// else:
+									//     print 'Error al crear archivo: ' . basename($the_filename);
+									endif;
+								endif;	
 							endif;
 						?>
 					</section>

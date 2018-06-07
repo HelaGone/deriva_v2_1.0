@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 
 	if( $('body').hasClass('input') ){
-		console.log('input file');
+		// console.log('input file');
 
 		//STORE DATA IN LOCALSTORAGE
 		var data = $('#data_store').val();
@@ -14,24 +14,24 @@ $(document).ready(function(){
 
 		if( data == undefined){
 			isdata = false;
-			console.log('no hay data');
+			// console.log('no hay data');
 		}else{
 			if(typeof(Storage) !== 'undefined'){
-				console.log( data+' <<< set item' );
+				// console.log( data+' <<< set item' );
 				isdata = true;
 		    	localStorage.setItem('data', data);
 			}else{
 				isdata = false;
-		    	console.log('not supported');
+		    	// console.log('not supported');
 		    	alert('Por favor actualiza tu browser');
 			}
 		}	
 
 
 		if(isdata) {
-			console.log('ya hay datos');
+			// console.log('ya hay datos');
 			var data_json = JSON.parse(localStorage.getItem('data'));
-			console.log(data_json);
+			// console.log(data_json);
 			$('#_fname').val(data_json.filename);
 			$('#_ftype').val(data_json.filetype);
 			$('#_newname').val(data_json.newname);
@@ -63,7 +63,7 @@ $(document).ready(function(){
 			$('#_jaypige').val(data_json.jaypigee);
 		}else{
 			isdata = false;
-			console.log('no se salvaron datos previos');
+			// console.log('no se salvaron datos previos');
 		}			
 	}//INPUT FORM
 
@@ -76,37 +76,29 @@ $(document).ready(function(){
 		var values_arr = [];
 		// console.log(values_arr+' <<<<< vacío ');
 		var row_id = "#"+$(this).attr('data-row');
-		console.log(row_id);
-
+		// console.log(row_id);
 		$('#id_in'+elem_count).val('');
 		$('#id_in'+elem_count).attr('');
-
-
 		$('#lightbox_form').show('fast');
-
-		$.each( $(row_id).find('td') , function(){
-			 
-			if( $(this).text() != 'update' && !$(this).hasClass('imagen') ) {
+		$.each($(row_id).find('td') , function(){
+			if($(this).text() != 'update' && !$(this).hasClass('imagen')){
 				values_arr.push( $(this).text() );
 				// console.log('>>> '+$(this).text()+' <<<');
 			}else{
 				// console.log("aqui entra");
 				if( $(this).hasClass('imagen') ){
-					console.log($(this).find('img').attr('src'));
+					// console.log($(this).find('img').attr('src'));
 					values_arr.push( $(this).find('img').attr('src') );
 				}
 			}
 		});
 
-		console.log(values_arr+' <<<<<');
+		// console.log(values_arr+' <<<<<');
 
 		$.each(values_arr, function(k, v){
-
 			$('#id_in'+elem_count).val(v).blur();
-
-			//$('#id_in'+elem_count).attr('placeholder',v);
-
-			console.log(k+' : '+v);
+			$('#id_in'+elem_count).attr('placeholder',v);
+			// console.log(k+' : '+v);
 			elem_count++;
 		});
 	});//END UPATE CLICK
@@ -132,7 +124,7 @@ $(document).ready(function(){
 			
 			$('#lightbox_form').hide('fast');
 			$("#id_in0").prop("disabled", true);
-			// location.reload();
+			location.reload();
 			alert("done: "+ msg );
 		});
 		 

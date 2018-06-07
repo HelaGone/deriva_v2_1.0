@@ -364,5 +364,5 @@
 			</tr>
 		</table>
 	</form>
-	<button class="to_main back">Regresar</button>
+	<!-- <button class="to_main back">Regresar</button> -->
 </section>
