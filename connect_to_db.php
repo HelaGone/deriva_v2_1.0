@@ -9,7 +9,7 @@ error_reporting(E_ALL | E_STRICT); //DECLARA DEBUG, COMENTAR ESTA LINEA CUANDO T
 // DEFINE('DB_USER', 'derivamx');
 // DEFINE('DB_PSWD', 'wewmsfzn');
 // DEFINE('DB_HOST', 'mysql.deriva.mx');
-// DEFINE('DB_NAME', 'materiales_deriva_interfaz_web'); //live db
+// DEFINE('DB_NAME', 'archivo_clasificado_derivamx'); //live db
 
 DEFINE('DB_USER', 'root');
 DEFINE('DB_PSWD', 'helagone13');
